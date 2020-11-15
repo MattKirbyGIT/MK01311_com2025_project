@@ -1,0 +1,93 @@
+// Place all the styles related to the Films controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "globalStyles";
+.film-grid {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.film-item {
+  color: white;
+
+  margin: 0 auto;
+  text-align: center;
+  max-width: 350px;
+  width: 100%;
+}
+
+.film-item:hover .film-img {
+  transition: opacity 200ms;
+  opacity: 1;
+}
+
+.film-img {
+  opacity: 0.5;
+  width: 100%;
+  transition: opacity 200ms;
+}
+
+@media (min-width: 600px) {
+  .film-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .film-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.expand-overlay {
+  background-color: black;
+  opacity: 0.9;
+  z-index: 2;
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.expand-content {
+  position: absolute;
+  background-color: black;
+  max-width: 800px;
+  width: 95%;
+  border-radius: 10px;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.expand-img {
+  max-height: 500px;
+  height: 100%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.expand-text {
+  text-align: left;
+  padding: 10px 20px 10px !important;
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.expand-list {
+  color: $text-grey-1;
+  column-count: 2;
+  padding-left: 0px;
+  column-fill: auto;
+  list-style-type: none;
+  list-style: none;
+}
+
+.expand-descr {
+  color: $text-grey-1;
+}

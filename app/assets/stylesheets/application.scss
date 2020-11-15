@@ -1,0 +1,41 @@
+@import "bootstrap";
+@import "globalStyles";
+@import "homepage";
+@import "book";
+@import "films";
+
+body {
+  background-color: $bg-primary;
+}
+
+nav,
+.footer {
+  background-color: $bg-primary;
+  max-width: 1366px;
+  margin: 0 auto;
+}
+
+.footer {
+  text-align: center;
+}
+
+.separator {
+  border: 2px solid $bg-secondary;
+  width: 100vw;
+
+  position: absolute !important;
+}
+
+.wrapper {
+  height: 100vh;
+}
+
+.wrapper-inner {
+  max-width: 1366px;
+  margin: 0 auto;
+}
+
+.no-pointer {
+  pointer-events: none;
+  user-select: none;
+}

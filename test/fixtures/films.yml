@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString 1
+  description: MyString
+  release_date: 2020-11-14
+  running_time_mins: 160
+  minimum_age_restriction: 16
+  image_url: MyString
+  rating: 1.3
+
+two:
+  title: MyString 2
+  description: MyString
+  release_date: 2020-11-14
+  running_time_mins: 150
+  minimum_age_restriction: 18
+  image_url: MyString
+  rating: 3.2
