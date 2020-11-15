@@ -53,3 +53,10 @@ en:
       title: "What's on"
       description: "Browse films currently showing in our CineView cinemas."
       more: "More info"
+
+    film:
+      rd: "Release Date: "
+      rating: "Rating: "
+      rtm: "Length (mins): "
+      ma: "Minimum Age: "
+      book: "Book tickets for: "

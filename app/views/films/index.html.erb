@@ -33,17 +33,17 @@
                   
 
                       <ul class="expand-list">
-                        <li>Release date: <%= film.release_date %></li>
-                        <li>Rating: <%= film.rating %></li>
-                        <li>Running Time (mins):<%= film.running_time_mins %></li>
-                        <li>Minimum age: <%= film.minimum_age_restriction %></li>
+                        <li><%= t('films.film.rd') %><%= film.release_date %></li>
+                        <li><%= t('films.film.rating') %> <%= film.rating %></li>
+                        <li><%= t('films.film.rtm') %><%= film.running_time_mins %></li>
+                        <li><%= t('films.film.ma') %><%= film.minimum_age_restriction %></li>
                       
                       </ul>
                       <hr class="no-pointer">
 
                       <p class="expand-descr"><%= film.description %></p>
                       <hr class="no-pointer">
-                      <button id="expand-<%= film.id %>"class="film-read-more btn btn-lg btn-block btn-outline-info" ><%= t('films.index.more') %></button>     
+                      <button id="expand-<%= film.id %>"class="film-read-more btn btn-lg btn-block btn-outline-info" ><%= t('films.film.book') %><%= film.title %></button>     
 
         
         
