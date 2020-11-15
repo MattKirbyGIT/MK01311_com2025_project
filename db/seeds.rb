@@ -16,7 +16,7 @@ Film.create([{
     rating: 4.2, 
     image_url: 'https://images.mymovies.net/images/film/cin/350x522/fid19715.jpg'},
 {
-    title: 'NO TIME TO DIE', 
+    title: 'No Time To Die', 
     description: 'Retirement doesn’t suit James Bond. When an old friend turns up to his Jamaican retreat in need of help, the spy is taken on a mission far more treacherous than even he could have expected. Léa Seydoux, Daniel Craig, Ralph Fiennes and Rami Malek star in the 25th film in the Bond series.', 
     release_date: Date.parse('2nd Apr 2021'), 
     running_time_mins: 183, 
@@ -24,14 +24,49 @@ Film.create([{
     rating: 4.5, 
     image_url: 'https://images.mymovies.net/images/film/cin/350x522/fid19804.jpg'
 
-},
+},{
     title: 'Tenet', 
     description: 'Armed with only one word—Tenet—and fighting for the survival of the entire world, the Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.', 
     release_date: Date.parse('2nd Apr 2021'), 
     running_time_mins: 191, 
     minimum_age_restriction: 12,
     rating: 4.9, 
-    image_url: 'https://m2.odeon.co.uk/_uploads/asset_management/220x320_a5cdedb42775cbd6f8ad6ff24633dc45.jpg'
-])
+    image_url: 'https://images.mymovies.net/images/film/cin/350x522/fid20066.jpg'
 
-@showing = Showing.create(film_id: 1, venue: "MyString 2", date: Date.parse('2nd Apr 2021'), time: "14:33:43", rows: 10, seats_per_row: 10)
+},{
+    title: 'AVENGERS: ENDGAME', 
+    description: 'The grave course of events set in motion by Thanos that wiped out half the universe and fractured the Avengers ranks compels the remaining Avengers to take one final stand in Marvel Studios grand conclusion to twenty-two films, "Avengers: Endgame."', 
+    release_date: Date.parse('25th Apr 2019'), 
+    running_time_mins: 191, 
+    minimum_age_restriction: 12,
+    rating: 4.5, 
+    image_url: 'https://images.mymovies.net/images/film/cin/350x522/fid19129.jpg'
+
+},{
+    title: 'STAR WARS: The Rise of Skywalker', 
+    description: "J.J. Abrams directs, produces, and co-writes this thrilling conclusion to the saga, starring Daisy Ridley, Adam Driver, Oscar Isaac and John Boyega. Rey's journey continues and the Skywalker saga concludes in 'Star Wars: The Rise Of Skywalker', coming December 2019. No one's ever really gone...", 
+    release_date: Date.parse('19th Dec 2019'), 
+    running_time_mins: 144, 
+    minimum_age_restriction: 12,
+    rating: 3.4, 
+    image_url: 'https://images.mymovies.net/images/film/cin/350x522/fid19446.jpg'
+
+},{
+    title: 'Knives Out', 
+    description: "When a family gathering goes horribly wrong, three detectives are sent to unravel the puzzling mystery behind the death of one of the guests. Rian Johnson directs Chris Evans, Daniel Craig, and LaKeith Stanfield, who star in this modern murder mystery that will keep you guessing throughout.", 
+    release_date: Date.parse('27th Nov 2019'), 
+    running_time_mins: 130, 
+    minimum_age_restriction: 12,
+    rating: 5, 
+    image_url: 'https://images.mymovies.net/images/film/cin/350x522/fid19692.jpg'
+}])
+
+Showing.create([{
+    film_id: 1, 
+    venue: "Piccadilly", 
+    date: Date.parse('2nd Apr 2021'), 
+    time: "14:33:43", 
+    rows: 15, 
+    seats_per_row: 15 
+    },
+])
