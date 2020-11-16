@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Film.create([{
+@films = Film.create([{
     title: 'The Kings Man', 
     description: 'When a group of villains devises a plot to kill millions around the world, a nobleman and his protégée must step up to stop them. Gemma Arterton, Ralph Fiennes and Harris Dickinson star in this action-packed prequel to the acclaimed Kingsman film series.', 
     release_date: Date.parse('12th Feb 2021'), 
@@ -61,12 +61,37 @@ Film.create([{
     image_url: 'https://images.mymovies.net/images/film/cin/350x522/fid19692.jpg'
 }])
 
-Showing.create([{
-    film_id: 1, 
-    venue: "Piccadilly", 
-    date: Date.parse('2nd Apr 2021'), 
-    time: "14:33:43", 
-    rows: 15, 
-    seats_per_row: 15 
-    },
+@venues = Venue.create([{
+    name: "CineView Piccadilly", 
+    location: "19 Lower, Regent St, London SW1Y 4LR",
+    rows: 16, 
+    seats_per_row: 16 
+    },{
+    name: "CineView West End", 
+    location: "Square, 3 Cranbourn Street Leicester, London WC2H 7AL",
+    rows: 16, 
+    seats_per_row: 12 
+    },{
+    name: "CineView Westfield", 
+    location: "Montfichet Rd, London E20 1EJ",
+    rows: 10, 
+    seats_per_row: 12 
+    },{
+    name: "CineView West End", 
+    location: "Square, 3 Cranbourn Street Leicester, London WC2H 7AL",
+    rows: 16, 
+    seats_per_row: 12 
+    }
 ])
+
+@showings = Showing.create([{
+    film_id: 4,
+    date: "2020-11-17",
+    time: "10:00:00"
+    },{
+    film_id: 4,
+    date: "2020-11-17",
+    time: "13:00:00"
+    }
+])
+
