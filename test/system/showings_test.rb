@@ -16,10 +16,7 @@ class ShowingsTest < ApplicationSystemTestCase
 
     fill_in "Date", with: @showing.date
     fill_in "Film", with: @showing.film_id
-    fill_in "Rows", with: @showing.rows
-    fill_in "Seats per row", with: @showing.seats_per_row
     fill_in "Time", with: @showing.time
-    fill_in "Venue", with: @showing.venue
     click_on "Create Showing"
 
     assert_text "Showing was successfully created"
@@ -32,10 +29,7 @@ class ShowingsTest < ApplicationSystemTestCase
 
     fill_in "Date", with: @showing.date
     fill_in "Film", with: @showing.film_id
-    fill_in "Rows", with: @showing.rows
-    fill_in "Seats per row", with: @showing.seats_per_row
     fill_in "Time", with: @showing.time
-    fill_in "Venue", with: @showing.venue
     click_on "Update Showing"
 
     assert_text "Showing was successfully updated"

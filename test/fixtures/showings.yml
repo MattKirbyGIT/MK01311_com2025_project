@@ -2,16 +2,10 @@
 
 one:
   film: one
-  venue: MyString 2sfg
   date: "2020-11-14"
   time: "14:33:43"
-  rows: 10
-  seats_per_row: 10
 
 two:
   film: two
-  venue: MyString 1
   date: "2020-11-14"
   time: "14:33:43"
-  rows: 10
-  seats_per_row: 10

@@ -18,7 +18,7 @@ class ShowingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create showing" do
     assert_difference('Showing.count') do
-      post showings_url, params: { showing: { date: @showing.date, film_id: @film.id, rows: @showing.rows, seats_per_row: @showing.seats_per_row, time: @showing.time, venue: @showing.venue + " create" } }
+      post showings_url, params: { showing: { date: @showing.date, film_id: @film.id, time: @showing.time } }
     end
 
     assert_redirected_to showing_url(Showing.last)
@@ -35,7 +35,7 @@ class ShowingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update showing" do
-    patch showing_url(@showing), params: { showing: { date: @showing.date, film_id: @film.id, rows: @showing.rows, seats_per_row: @showing.seats_per_row, time: @showing.time, venue: @showing.venue } }
+    patch showing_url(@showing), params: { showing: { date: @showing.date, film_id: @film.id, time: @showing.time } }
     assert_redirected_to showing_url(@showing)
   end
 
