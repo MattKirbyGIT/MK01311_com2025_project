@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Film</th>
+      <th>Venue</th>
       <th>Date</th>
       <th>Time</th>
       <th colspan="3"></th>
@@ -16,6 +17,7 @@
     <% @showings.each do |showing| %>
       <tr>
         <td><%= showing.film %></td>
+        <td><%= showing.venue %></td>
         <td><%= showing.date %></td>
         <td><%= showing.time %></td>
         <td><%= link_to 'Show', showing %></td>

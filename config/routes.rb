@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :venues
   resources :showings
+  resources :venues
   resources :films
   root 'home#index'
   get 'film', to: "film#index"
