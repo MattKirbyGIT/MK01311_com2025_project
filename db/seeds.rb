@@ -66,32 +66,67 @@
     location: "19 Lower, Regent St, London SW1Y 4LR",
     rows: 16, 
     seats_per_row: 16 
-    },{
+},{
     name: "CineView West End", 
     location: "Square, 3 Cranbourn Street Leicester, London WC2H 7AL",
     rows: 16, 
     seats_per_row: 12 
-    },{
+},{
     name: "CineView Westfield", 
     location: "Montfichet Rd, London E20 1EJ",
     rows: 10, 
     seats_per_row: 12 
-    },{
-    name: "CineView West End", 
-    location: "Square, 3 Cranbourn Street Leicester, London WC2H 7AL",
-    rows: 16, 
-    seats_per_row: 12 
-    }
+ }
 ])
 
 @showings = Showing.create([{
-    film_id: 4,
-    date: "2020-11-17",
+    film_id: 3,
+    venue_id: 1,
     time: "10:00:00"
-    },{
-    film_id: 4,
-    date: "2020-11-17",
+},{
+    film_id: 3,
+    venue_id: 1,
     time: "13:00:00"
-    }
+},{
+    film_id: 4,
+    venue_id: 1,
+    time: "16:00:00"
+},{
+    film_id: 5,
+    venue_id: 1,
+    time: "19:00:00"
+},{
+    film_id: 4,
+    venue_id: 2,
+    time: "10:00:00"
+},{
+    film_id: 4,
+    venue_id: 2,
+    time: "13:00:00"
+},{
+    film_id: 5,
+    venue_id: 2,
+    time: "16:00:00"
+},{
+    film_id: 6,
+    venue_id: 2,
+    time: "19:00:00"
+},{
+    film_id: 5,
+    venue_id: 3,
+    time: "10:00:00"
+},{
+    film_id: 5,
+    venue_id: 3,
+    time: "13:00:00"
+},{
+    film_id: 6,
+    venue_id: 3,
+    time: "16:00:00"
+},{
+    film_id: 4,
+    venue_id: 3,
+    time: "19:00:00"
+}
 ])
 

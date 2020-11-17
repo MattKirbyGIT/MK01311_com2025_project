@@ -11,12 +11,12 @@
     <% @films.each do |film| %>
     
         <div class = "film-item" id="grid-item-<%= film.id %>">
-            <img class="film-img" src="<%= film.image_url %>" />
+            <img class="film-img no-pointer" src="<%= film.image_url %>" />
               <div class ="film-content m-2">
-                <h1 class='film-title lead'><%= film.title %></h1>
-                <button id="expand-<%= film.id %>"class="film-read-more btn btn-block btn-outline-info" ><%= t('films.index.more') %></button>     
+                <h1 class='film-title lead no-pointer'><%= film.title %></h1>
+                    
               </div>  
-              <div id="grid-expand-<%= film.id %>" class="grid-expand" style="display: none;">
+              <div id="grid-expand-<%= film.id %>" class="grid-expand">
                 <div class="expand-overlay" id="expand-overlay-<%= film.id %>"></div>
                 <div class="expand-content">
                   <div class="row">
@@ -29,21 +29,18 @@
                       <h1 class='film-title display-4'><%= film.title %></h1>
                       
                       
-                      
-                  
-
                       <ul class="expand-list">
-                        <li><%= t('films.film.rd') %><%= film.release_date %></li>
-                        <li><%= t('films.film.rating') %> <%= film.rating %></li>
-                        <li><%= t('films.film.rtm') %><%= film.running_time_mins %></li>
-                        <li><%= t('films.film.ma') %><%= film.minimum_age_restriction %></li>
+                        <li class="film-date badge badge-info" id="film-date-<%= film.id %>"><%= t('films.film.rd') %><%= film.release_date %></li>
+                        <li class="badge badge-info"><%= t('films.film.rating') %> <%= film.rating %></li>
+                        <li class="badge badge-info"><%= t('films.film.rtm') %><%= film.running_time_mins %></li>
+                        <li class="badge badge-info"><%= t('films.film.ma') %><%= film.minimum_age_restriction %></li>
                       
                       </ul>
                       <hr class="no-pointer">
 
                       <p class="expand-descr"><%= film.description %></p>
                       <hr class="no-pointer">
-                      <button id="expand-<%= film.id %>"class="film-read-more btn btn-lg btn-block btn-outline-info" ><%= t('films.film.book') %><%= film.title %></button>     
+                      <button id="book-<%= film.id %>"class="film-read-more btn btn-lg btn-block btn-outline-info" ><%= t('films.film.book') %><%= film.title %></button>     
 
         
         

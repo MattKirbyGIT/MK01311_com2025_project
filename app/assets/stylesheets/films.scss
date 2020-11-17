@@ -10,22 +10,18 @@
 
 .film-item {
   color: white;
-
+  transition: opacity 800ms;
   margin: 0 auto;
   text-align: center;
-  max-width: 350px;
+  max-width: 250px;
   width: 100%;
-}
-
-.film-item:hover .film-img {
-  transition: opacity 200ms;
-  opacity: 1;
+  box-shadow: $card-shadow-1;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
 .film-img {
-  opacity: 0.5;
   width: 100%;
-  transition: opacity 200ms;
 }
 
 @media (min-width: 600px) {
@@ -57,11 +53,13 @@
   background-color: black;
   max-width: 800px;
   width: 95%;
-  border-radius: 10px;
+  border-radius: 15px;
   z-index: 3;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: $card-shadow-1;
+  overflow: hidden;
 }
 
 .expand-img {
@@ -86,8 +84,13 @@
   column-fill: auto;
   list-style-type: none;
   list-style: none;
+  font-size: 1em;
 }
 
 .expand-descr {
   color: $text-grey-1;
+}
+
+.grid-expand {
+  display: none;
 }
