@@ -5,33 +5,20 @@
 
 $(document).ready(function(){
     // Handler when all assets are loaded
-    gridEventHandlers();
+  
     dateCheck();
   });
 
 
-function gridEventHandlers(){ 
-    document.querySelectorAll(".film-item").forEach(element =>{
-        element.addEventListener('click', event =>{     
-            var cell_id = event.target.id.replace("grid-item-","") 
-            $("#grid-expand-"+cell_id).fadeToggle(200);
-        })
-
-        element.addEventListener('mouseenter', event =>{  
-            cellFade(true, event.target.id)
-        })
-    
-        element.addEventListener('mouseout', event =>{   
-            cellFade(false)
-        })  
-    });
-    document.querySelectorAll(".expand-overlay").forEach(element =>{
-        element.addEventListener('click', event =>{  
-            var cellID = event.target.id.replace("expand-overlay-","") 
-            $("#grid-expand-"+cellID).fadeToggle(200);
-            return false;    
-        })
-    });
+function toggleExpand(show,id){ 
+    if(show){
+        var cell_id = id.replace("grid-thumb-","") 
+        $("#grid-expand-"+cell_id).fadeIn(200);
+     } else {
+        var cell_id = id.replace("grid-close-","") 
+        $("#grid-expand-"+cell_id).fadeOut(200);
+     }
+            
 }
 
 function cellFade(fade, ignored_cell){
@@ -48,7 +35,6 @@ function cellFade(fade, ignored_cell){
 }
 
 function dateCheck(){
-    
     document.querySelectorAll(".film-date").forEach(element =>{
       const date = Date.parse(element.innerHTML)
       const cell_id = element.id.replace("film-date-","");
