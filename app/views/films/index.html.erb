@@ -32,7 +32,8 @@
                       <hr class="no-pointer">
                       <p class="expand-descr"><%= film.description %></p>
                       <hr class="no-pointer">
-                      <button id="book-<%= film.id %>"class="film-read-more btn btn-lg btn-block btn-outline-info mb-2" ><%= t('films.film.book') %><%= film.title %></button>     
+                      
+                      <%= button_to t('films.film.book') + film.title ,showings_path, method: :get, params: { film: film, title: film.title }, class: "film-read-more btn btn-lg btn-block btn-outline-info mb-2",  id: "book-" + film.id.to_s %>    
                       <button id="grid-close-<%= film.id %>"class="expand-close btn btn-lg btn-outline-secondary btn-block mb-2" onclick="toggleExpand(false,this.id)"><%= t('films.film.close')%></button> 
                     </div>
                   </div>

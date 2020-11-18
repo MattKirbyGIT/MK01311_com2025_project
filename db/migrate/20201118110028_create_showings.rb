@@ -5,6 +5,7 @@ class CreateShowings < ActiveRecord::Migration[5.2]
       t.belongs_to :venue, foreign_key: true, null: false
       t.date :date
       t.time :time, null: false
+      t.decimal :price, null: false
 
       t.timestamps
     end

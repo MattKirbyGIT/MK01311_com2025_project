@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :bookings
   resources :showings
+  resources :bookings
   resources :venues
-  resources :films, only: [:index]
+  resources :films
   root 'home#index'
   get 'film', to: "film#index"
   

@@ -3,11 +3,13 @@
 one:
   film: one
   venue: one
-  date: 2020-11-17
-  time: "17:42:07"
+  date: 2020-11-18
+  time: "11:00:28"
+  price: 9.99
 
 two:
   film: two
   venue: two
-  date: 2020-11-17
-  time: "17:42:07"
+  date: 2020-11-18
+  time: "11:00:28"
+  price: 9.99

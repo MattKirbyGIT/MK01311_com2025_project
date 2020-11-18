@@ -16,6 +16,7 @@ class ShowingsTest < ApplicationSystemTestCase
 
     fill_in "Date", with: @showing.date
     fill_in "Film", with: @showing.film_id
+    fill_in "Price", with: @showing.price
     fill_in "Time", with: @showing.time
     fill_in "Venue", with: @showing.venue_id
     click_on "Create Showing"
@@ -30,6 +31,7 @@ class ShowingsTest < ApplicationSystemTestCase
 
     fill_in "Date", with: @showing.date
     fill_in "Film", with: @showing.film_id
+    fill_in "Price", with: @showing.price
     fill_in "Time", with: @showing.time
     fill_in "Venue", with: @showing.venue_id
     click_on "Update Showing"

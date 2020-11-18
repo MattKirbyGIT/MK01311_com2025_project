@@ -2,7 +2,7 @@
 
 <p>
   <strong>Film:</strong>
-  <%= @showing.film %>
+  <%= @showing.film.title %>
 </p>
 
 <p>
@@ -18,6 +18,11 @@
 <p>
   <strong>Time:</strong>
   <%= @showing.time %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @showing.price %>
 </p>
 
 <%= link_to 'Edit', edit_showing_path(@showing) %> |

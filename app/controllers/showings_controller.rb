@@ -4,7 +4,9 @@ class ShowingsController < ApplicationController
   # GET /showings
   # GET /showings.json
   def index
-    @showings = Showing.all
+    @film = Film.where(id: params[:film]).first
+    puts @film.inspect
+    @showings = Showing.where(:film => params[:film])
   end
 
   # GET /showings/1
@@ -69,6 +71,6 @@ class ShowingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def showing_params
-      params.require(:showing).permit(:film_id, :venue_id, :date, :time)
+      params.require(:showing).permit(:film_id, :venue_id, :date, :time, :price)
     end
 end

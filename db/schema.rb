@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_174207) do
+ActiveRecord::Schema.define(version: 2020_11_18_110028) do
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer "showing_id"
+    t.string "name"
+    t.string "email"
+    t.integer "seat"
+    t.integer "row"
+    t.string "E_ticket"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["showing_id"], name: "index_bookings_on_showing_id"
+  end
 
   create_table "films", force: :cascade do |t|
     t.string "title", null: false
@@ -30,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_11_17_174207) do
     t.integer "venue_id", null: false
     t.date "date"
     t.time "time", null: false
+    t.decimal "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["film_id"], name: "index_showings_on_film_id"
