@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_18_110028) do
+ActiveRecord::Schema.define(version: 2020_11_19_174423) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "showing_id"
@@ -46,14 +46,16 @@ ActiveRecord::Schema.define(version: 2020_11_18_110028) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["film_id"], name: "index_showings_on_film_id"
+    t.index ["id"], name: "index_showings_on_id"
     t.index ["venue_id"], name: "index_showings_on_venue_id"
   end
 
   create_table "venues", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
-    t.integer "rows"
-    t.integer "seats_per_row"
+    t.string "name", null: false
+    t.string "location", null: false
+    t.string "image_url"
+    t.integer "rows", null: false
+    t.integer "seats_per_row", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -14,6 +14,7 @@ class VenuesTest < ApplicationSystemTestCase
     visit venues_url
     click_on "New Venue"
 
+    fill_in "Image url", with: @venue.image_url
     fill_in "Location", with: @venue.location
     fill_in "Name", with: @venue.name
     fill_in "Rows", with: @venue.rows
@@ -28,6 +29,7 @@ class VenuesTest < ApplicationSystemTestCase
     visit venues_url
     click_on "Edit", match: :first
 
+    fill_in "Image url", with: @venue.image_url
     fill_in "Location", with: @venue.location
     fill_in "Name", with: @venue.name
     fill_in "Rows", with: @venue.rows

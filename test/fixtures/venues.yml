@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString 1
-  location: MyString 1
-  rows: 10
-  seats_per_row: 10
+  name: MyString
+  location: MyString
+  image_url: MyString
+  rows: 1
+  seats_per_row: 1
 
 two:
-  name: MyString 2
-  location: MyString 2
-  rows: 10
-  seats_per_row: 10
+  name: MyString
+  location: MyString
+  image_url: MyString
+  rows: 1
+  seats_per_row: 1

@@ -1,3 +1,24 @@
 // Place all the styles related to the Venues controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "globalStyles";
+
+.venue-img {
+  max-width: 300px;
+}
+
+.venue-expand {
+  display: none;
+}
+
+.venue-title {
+  color: $heading-main;
+  font-size: 2em;
+}
+
+.venue-expand {
+}
+
+.venue-expand-img {
+  max-height: 300px;
+}

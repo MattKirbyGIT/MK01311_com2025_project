@@ -3,6 +3,8 @@
 @import "homepage";
 @import "book";
 @import "films";
+@import "venues";
+@import "showings";
 
 body {
   background-color: $bg-primary;
@@ -22,7 +24,6 @@ nav,
 .separator {
   border: 2px solid $bg-secondary;
   width: 100vw;
-
   position: absolute !important;
 }
 
@@ -39,4 +40,37 @@ nav,
 .no-pointer {
   pointer-events: none;
   user-select: none;
+}
+
+.glow-shadow {
+  box-shadow: $card-shadow-1;
+}
+
+.item-grid {
+  display: grid;
+  grid-gap: 3rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cell {
+  color: white;
+  transition: opacity 800ms;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 300px;
+  width: 100%;
+
+  transition: all 800ms;
+}
+
+@media (min-width: 600px) {
+  .item-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .item-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

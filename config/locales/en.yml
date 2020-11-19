@@ -61,3 +61,13 @@ en:
       ma: "Minimum Age: "
       book: "Book tickets for: "
       close: Close
+
+  showings:
+    index:
+      title: "Watch: "
+      description: "Select your desired CineView venue and showing time for your selected film."
+      select: "Select a showing time for: "
+
+  venues:
+    index:
+      cap: "Venue capacity: "

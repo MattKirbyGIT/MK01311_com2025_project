@@ -65,17 +65,20 @@
     name: "CineView Piccadilly", 
     location: "19 Lower, Regent St, London SW1Y 4LR",
     rows: 16, 
-    seats_per_row: 16 
+    seats_per_row: 16,
+    image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Open_Happiness_Piccadilly_Circus_Blue-Pink_Hour_120917-1126-jikatu.jpg/1200px-Open_Happiness_Piccadilly_Circus_Blue-Pink_Hour_120917-1126-jikatu.jpg" 
 },{
     name: "CineView West End", 
     location: "Square, 3 Cranbourn Street Leicester, London WC2H 7AL",
     rows: 16, 
-    seats_per_row: 12 
+    seats_per_row: 12,
+    image_url: "https://myrooms.co.uk/wp-content/uploads/2014/12/Leicester-square.jpg"
 },{
     name: "CineView Westfield", 
     location: "Montfichet Rd, London E20 1EJ",
     rows: 10, 
-    seats_per_row: 12 
+    seats_per_row: 12,
+    image_url: "https://cdn.londonandpartners.com/asset/435b8339ae741892bbb5f43888c3a3ad.jpg" 
  }
 ])
 

@@ -5,21 +5,21 @@
 
 function toggleExpand(show,id){ 
     if(show){
-        var cell_id = id.replace("grid-thumb-","") 
+        var cell_id = id.replace(/\D/g,'');
         $("#grid-expand-"+cell_id).fadeIn(200);
         dateCheck();
      } else {
-        var cell_id = id.replace("grid-close-","") 
+        var cell_id = id.replace(/\D/g,'');
         $("#grid-expand-"+cell_id).fadeOut(200);
      }
             
 }
 
 function cellFade(fade, ignored_cell){
-    document.querySelectorAll(".film-item").forEach(cell =>{
+    document.querySelectorAll(".grid-cell").forEach(cell =>{
         if(fade){
             if(cell.id != ignored_cell){
-                cell.style.opacity = 0.2;
+                cell.style.opacity = 0.4;
             }
         } else {
             cell.style.opacity = 1;

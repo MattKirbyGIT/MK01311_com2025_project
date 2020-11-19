@@ -4,4 +4,3 @@ class Venue < ApplicationRecord
     validates :rows, presence: true, inclusion: {in: 1..20}
     validates :seats_per_row, presence: true, inclusion: {in: 1..20}
 end
-
