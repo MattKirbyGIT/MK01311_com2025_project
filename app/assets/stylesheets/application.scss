@@ -1,7 +1,7 @@
 @import "bootstrap";
 @import "globalStyles";
 @import "homepage";
-@import "book";
+@import "bookings";
 @import "films";
 @import "venues";
 @import "showings";
@@ -19,6 +19,10 @@ nav,
 
 .footer {
   text-align: center;
+}
+
+.heading {
+  color: $heading-main;
 }
 
 .separator {
@@ -73,4 +77,12 @@ nav,
   .item-grid {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+.meta-list {
+  list-style-type: none;
+
+  width: 100%;
+
+  font-size: small;
 }

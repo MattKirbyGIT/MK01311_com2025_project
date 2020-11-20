@@ -11,8 +11,7 @@ function toggleExpand(show,id){
      } else {
         var cell_id = id.replace(/\D/g,'');
         $("#grid-expand-"+cell_id).fadeOut(200);
-     }
-            
+     }         
 }
 
 function cellFade(fade, ignored_cell){

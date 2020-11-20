@@ -32,7 +32,7 @@
                     </div>
                     <div class="expand-text mt-3 ">
                       <h1 class='film-title display-4'><%= @uniqueVenues[venue].name %></h1>
-                      <ul class="venue-list px-3">
+                      <ul class="meta-list px-3">
                         <li class="text-muted"><%= t('showings.index.location') %></li>
                         <li class=""><%= @uniqueVenues[venue].location %></li>
                         <hr class="no-pointer">
@@ -48,7 +48,7 @@
   
                     <div class="expand-close">
                      <% @venueShowings[venue].each do |showing| %>
-                  <span class="badge badge-warning badge-pill m-2"><%= button_to showing.time.strftime('%H:%M'),showings_path, method: :get, class: "showing-time" %></span>
+                  <span class="badge badge-warning badge-pill m-2"><%= button_to showing.time.strftime('%H:%M'),new_booking_path, method: :get, params: { showing: showing }, class: "showing-time" %></span>
                    
                 <% end %> 
                   </div>

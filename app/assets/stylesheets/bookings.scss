@@ -1,3 +1,39 @@
 // Place all the styles related to the Bookings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "globalStyles";
+
+.form-list {
+  color: $heading-secondary;
+}
+
+.form-input {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $text-muted;
+  opacity: 1; /* Firefox */
+}
+
+.text-input {
+  color: $heading-secondary;
+  font-size: 1.75em;
+
+  background: none;
+  border: none;
+}
+
+.input-option {
+  font-size: medium;
+}
+
+.seats-amount {
+  display: inline-flex;
+}
+
+.seat-selector {
+  display: none;
+}

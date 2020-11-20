@@ -11,20 +11,53 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :showing_id %>
-    <%= form.text_field :showing_id %>
+  <ul class="meta-list px-3 form-list">
+    <li class="text-muted"><%= t('bookings.form.film') %></li>
+    <li class=""><%= @booking.showing.film.title %></li>
+    <hr class="no-pointer">
+    <li class="text-muted"><%= t('bookings.form.venue') %></li>
+    <li class=""><%= @booking.showing.venue.name %></li>
+    <hr class="no-pointer">
+    <li class="text-muted"><%= t('bookings.form.time') %></li>
+    <li class=""><%= @booking.showing.time.strftime('%H:%M') %></li>
+    <hr class="no-pointer">
+
+    <li>
+      <label class="form-input text-muted">
+        <%= t('bookings.form.name') %>
+        <%= form.text_field :name, class: "text-input p-2", placeholder: t('bookings.form.req'), required: true, type: "text" %>
+      </label>
+      <hr class="no-pointer mt-0">
+    </li>
+
+    <li>
+      <label class="form-input text-muted">
+        <%= t('bookings.form.email') %>
+        <%= form.text_field :email, class: "text-input p-2", placeholder: t('bookings.form.req'), required: true, type: "email" %>
+      </label>
+      <hr class="no-pointer mt-0">
+    </li>
+
+    <li>
+      <label class="form-input text-muted">
+        <%= t('bookings.form.seats') %>
+        <select id="seats-amount" class="seats-amount text-input p-1 m-2" ></select>
+        <button type="button" class="btn btn-sm btn-outline-warning my-2" onclick="toggleSeatSelector(true)"><%= t('bookings.form.select')%></button> 
+      </label>
+      <hr class="no-pointer mt-0">
+    </li>
+    
+  </ul>
+
+  <div id="seat-selector" class="seat-selector">
+    <p id="rows"><%= @booking.showing.venue.rows %></p>
+    <p id="seats_per_row"><%= @booking.showing.venue.seats_per_row %></p>
+  
   </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+
+ 
 
   <div class="field">
     <%= form.label :seat %>

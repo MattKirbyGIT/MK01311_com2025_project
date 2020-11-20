@@ -1,5 +1,11 @@
-<h1>New Booking</h1>
+<div class="wrapper-inner px-4">
+  <div class="heading mx-2 mb-4">
+    <h1 class="title display-4"><%= t('bookings.new.title') %><%= @booking.showing.film.title %></h1>
+    <p class="description lead"><%= t('bookings.new.description') %></p>
+  </div>
+  <%= render 'form', booking: @booking %>
+</div>
 
-<%= render 'form', booking: @booking %>
+
 
 <%= link_to 'Back', bookings_path %>

@@ -73,3 +73,18 @@ en:
     index:
       cap: "Maximum venue capacity "
       cap2: " Seats"
+
+  bookings:
+    new:
+      title: "Tickets for: "
+      description: "Fill in your personal details below."
+
+    form:
+      film: "Selected film"
+      venue: "CineView venue"
+      time: "Showing time"
+      name: "Enter your name"
+      email: "Enter your Email address"
+      seats: "Select your desired number of seats"
+      req: "Required"
+      select: "Select seats"
