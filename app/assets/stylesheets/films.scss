@@ -16,10 +16,10 @@
 
 .expand-overlay {
   background-color: black;
-  opacity: 0.9;
+  opacity: 0.95;
   z-index: 2;
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -27,43 +27,47 @@
 }
 
 .expand-content {
+  display: flex;
   position: absolute;
-  background-color: black;
   max-width: 800px;
+  width: 90%;
   border-radius: 15px;
-  z-index: 3;
+  z-index: 10;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  overflow: hidden;
 }
 
 .expand-img {
-  height: 100%;
-
-  object-fit: cover;
+  max-height: 200px;
+  border-radius: 15px;
 }
 
 .expand-text {
-  justify-content: center;
-  flex-direction: column;
   text-align: left;
 }
 
-.expand-list {
-  color: $text-grey-1;
-  column-count: 2;
-  padding-left: 0px;
-  column-fill: auto;
+.meta-list {
   list-style-type: none;
-  list-style: none;
-  font-size: 1em;
-}
-
-.expand-descr {
-  color: $text-grey-1;
+  text-align: right;
+  width: 100%;
+  padding: 0px;
+  font-size: small;
 }
 
 .grid-expand {
   display: none;
+}
+
+.badge {
+  white-space: pre-line;
+}
+
+.book {
+  white-space: pre-line !important;
+}
+
+.expand-close {
+  border: none;
+  text-align: center;
 }

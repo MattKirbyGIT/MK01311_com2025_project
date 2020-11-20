@@ -19,31 +19,40 @@
             </div>
               <div id="grid-expand-<%= film.id %>" class="grid-expand">
                 <div class="expand-overlay" id="expand-overlay-<%= film.id %>" onclick="toggleExpand(true,this.id)"></div>
-                <div class="expand-content glow-shadow film-expand">
-                  <img class="expand-img " src="<%= film.image_url %>" />
-                    <div class="expand-text p-4">
-                      <h1 class='film-title display-4'><%= film.title %></h1>
-                      <ul class="expand-list">
-                        <li class="film-date badge badge-info" id="film-date-<%= film.id %>"><%= t('films.film.rd') %><%= film.release_date %></li>
-                        <li class="badge badge-info"><%= t('films.film.rating') %> <%= film.rating %></li>
-                        <li class="badge badge-info"><%= t('films.film.rtm') %><%= film.running_time_mins %></li>
-                        <li class="badge badge-info"><%= t('films.film.ma') %><%= film.minimum_age_restriction %></li>
+
+
+
+                  <div class="expand-content p-4">
+                    <div class="mt-3 mr-4">
+                      <img class="expand-img glow-shadow m-3" src="<%= film.image_url %>" />
+                      <ul class="meta-list px-3">
+                        <li class="text-muted"><%= t('films.film.rd') %></li>
+                        <li class="film-date" id="film-date-<%= film.id %>"><%= film.release_date %></li>
+                        <li class="text-muted"><%= t('films.film.rating') %> </li>
+                        <li class=""><%= film.rating %></li>
+                        <li class="text-muted"><%= t('films.film.rtm') %></li>
+                        <li class=""><%= film.running_time_mins %></li>
+                        <li class="text-muted"><%= t('films.film.ma') %></li>
+                        <li class=""><%= film.minimum_age_restriction %></li>
                       </ul>
+                    </div>
+                    <div class="expand-text mt-3 ">
+                      <h1 class='film-title display-4'><%= film.title %></h1>
                       <hr class="no-pointer">
                       <p class="expand-descr"><%= film.description %></p>
                       <hr class="no-pointer">
-                      
-                      <%= button_to t('films.film.book') + film.title ,showings_path, method: :get, params: { film: film, title: film.title }, class: "film-read-more btn btn-lg btn-block btn-outline-info mb-2",  id: "book-" + film.id.to_s %>    
-                      <button id="grid-close-<%= film.id %>"class="expand-close btn btn-lg btn-outline-secondary btn-block mb-2" onclick="toggleExpand(false,this.id)"><%= t('films.film.close')%></button> 
-                    </div>
+                      <%= button_to t('films.film.book') + film.title ,showings_path, method: :get, params: { film: film, title: film.title }, class: "book btn btn-block btn-lg btn-outline-info mb-2",  id: "book-" + film.id.to_s %>    
+                    <div class="expand-close">
+                    <button id="grid-close-<%= film.id %>"class="expand-close btn btn-sm btn-outline-secondary my-2" onclick="toggleExpand(false,this.id)"><%= t('films.film.close')%></button> 
                   </div>
-                </div>      
-        </div>
-
-        
-    <% end %>
-  </div>
-</div>
+                  
+                </div>
+              </div>
+            </div>             
+          </div>   
+        <% end %>
+      </div>
+    </div>
 
 
 

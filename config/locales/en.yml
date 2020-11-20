@@ -66,8 +66,10 @@ en:
     index:
       title: "Watch: "
       description: "Select your desired CineView venue and showing time for your selected film."
-      select: "Select a showing time for: "
+      select: "Selected film: "
+      times: "Available showing times"
 
   venues:
     index:
-      cap: "Venue capacity: "
+      cap: "Maximum venue capacity "
+      cap2: " Seats"
