@@ -50,6 +50,10 @@ nav,
   box-shadow: $card-shadow-1;
 }
 
+.glow-shadow-2 {
+  box-shadow: $card-shadow-2;
+}
+
 .item-grid {
   display: grid;
   grid-gap: 3rem;

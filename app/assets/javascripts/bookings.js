@@ -32,5 +32,5 @@ function toggleSeatSelector(show){
 }
 
 function handleSeats(){
-    
+
 }

@@ -50,8 +50,36 @@
   </ul>
 
   <div id="seat-selector" class="seat-selector">
-    <p id="rows"><%= @booking.showing.venue.rows %></p>
-    <p id="seats_per_row"><%= @booking.showing.venue.seats_per_row %></p>
+    <div class="expand-overlay" id="" onclick="toggleSeatSelector(false)"></div>
+    
+    
+
+
+    <div class="selector-content">
+
+      <ul class="meta-list px-3 form-list">
+        <li class=""><%= t('bookings.form.select') %></li>
+        <hr class="no-pointer">
+        <li class="text-muted"><%= t('bookings.form.screen') %></li>
+        <% (1..@booking.showing.venue.rows).each do |row|%>
+        <div class="flex-container">
+          <% (1..@booking.showing.venue.seats_per_row).each do |seat|%>
+            <div class="flex-item border border-secondary glow-shadow-2"></div>
+          <% end %>
+        </div>
+      <% end %>
+      <hr class="no-pointer">
+        <li class="text-muted"><%= t('bookings.form.select') %></li>
+        <li class=""><%= t('bookings.form.select2') %></li>
+        <hr class="no-pointer">
+   
+      </ul>
+
+     
+      
+    </div>
+
+  
   
   </div>
 
