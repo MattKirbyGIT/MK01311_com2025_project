@@ -16,6 +16,19 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @booking.showing_id = params[:showing]
+
+    @occupied = []
+    @bookings =  Booking.where(showing: params[:showing])
+    
+    @bookings.each do |booking|
+      subarray = [booking.seat,booking.row]
+      @occupied.push(subarray)
+    end
+
+
+    
+    puts @occupied.length
+    puts "XXXXXXXXXXXXXXXXXXXX"
   end
 
   # GET /bookings/1/edit

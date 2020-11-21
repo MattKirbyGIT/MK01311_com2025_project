@@ -145,3 +145,20 @@
 }
 ])
 
+@bookings = Booking.create([{
+    showing_id: 3,
+    name: "TestName",
+    email: "TestEmail@Email.com",
+    seat: 1,
+    row: 1,
+    E_ticket: "TestEticket"
+},{
+showing_id: 3,
+    name: "TestName2",
+    email: "TestEmail@Email2.com",
+    seat: 3,
+    row: 1,
+    E_ticket: "TestEticket"
+}
+])
+

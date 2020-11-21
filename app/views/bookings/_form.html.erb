@@ -51,36 +51,34 @@
 
   <div id="seat-selector" class="seat-selector">
     <div class="expand-overlay" id="" onclick="toggleSeatSelector(false)"></div>
-    
-    
-
-
     <div class="selector-content">
 
       <ul class="meta-list px-3 form-list">
         <li class=""><%= t('bookings.form.select') %></li>
         <hr class="no-pointer">
-        <li class="text-muted"><%= t('bookings.form.screen') %></li>
+        <li class="mb-2"><%= t('bookings.form.screen') %></li>
+        
+        
         <% (1..@booking.showing.venue.rows).each do |row|%>
-        <div class="flex-container">
-          <% (1..@booking.showing.venue.seats_per_row).each do |seat|%>
-            <div class="flex-item border border-secondary glow-shadow-2"></div>
-          <% end %>
-        </div>
-      <% end %>
-      <hr class="no-pointer">
-        <li class="text-muted"><%= t('bookings.form.select') %></li>
-        <li class=""><%= t('bookings.form.select2') %></li>
-        <hr class="no-pointer">
-   
-      </ul>
-
-     
-      
+         <p class="seat-num text-muted" ><%= t('bookings.form.row') %><%= row %></p>
+          <div class="flex-container">
+            <% (1..@booking.showing.venue.seats_per_row).each do |seat|%>
+            <% free = true%>
+            <% @occupied.each do |occupied|%>
+              <% if occupied[0] == seat && occupied[1] == row%>
+                <% free = false%>
+              <% end %>
+            <% end %>
+              <% if free %>
+                <div id = "seat<%= seat %>row<%= row %>"class="flex-item glow-shadow-2" onclick="seatSelect(<%= seat %>,<%= row %>)"></div>
+              <%else%>
+                <div id = "seat<%= seat %>row<%= row %>"class="flex-item seat-occupied glow-shadow-2" ></div>
+              <% end %>  
+            <% end %>
+          </div>
+        <% end %>
+      </ul> 
     </div>
-
-  
-  
   </div>
 
 
@@ -89,7 +87,7 @@
 
   <div class="field">
     <%= form.label :seat %>
-    <%= form.number_field :seat %>
+    <%= form.hidden_field :seat %>
   </div>
 
   <div class="field">
@@ -106,3 +104,5 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>handleOptions()</script>

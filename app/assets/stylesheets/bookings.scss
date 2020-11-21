@@ -66,16 +66,38 @@
 .flex-item {
   background: black;
   border-radius: 50%;
-  margin: 5px;
+  margin: 2px;
   color: white;
-  font-weight: bold;
   font-size: 1.5em;
   text-align: center;
   flex: 1 0 auto;
   height: auto;
+  border: 1px solid grey;
+  transition: all 200ms;
 }
 .flex-item:before {
   content: "";
   float: left;
   padding-top: 100%;
+}
+
+.flex-item:hover {
+  border-color: white;
+  background-color: white;
+  transition: all 200ms;
+}
+
+.seat-num {
+  margin: 0;
+  font-size: x-small;
+}
+
+.seat-occupied {
+  background-color: $warning;
+  border-color: $warning;
+}
+
+.seat-select {
+  background-color: $info;
+  border-color: $info;
 }
