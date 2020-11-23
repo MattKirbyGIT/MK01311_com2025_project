@@ -7,65 +7,46 @@
     <h1 class="title display-4"><%= t('showings.index.title') %><%= @film.title %></h1>
     <p class="description lead"><%= t('showings.index.description') %></p>
   </div>
-    <div class='item-grid mx-2 py-4'>
-      <% (0..@uniqueVenues.length-1).each do |venue|%>
-        
-
-
-
-                 <div class = "grid-cell" id="grid-item-<%= @uniqueVenues[venue].id %>" onmouseenter="cellFade(true,this.id)" onmouseout="cellFade(false)" >
-            <div id="grid-thumb-<%= @uniqueVenues[venue].id %>" onclick="toggleExpand(true,this.id)">
-            <img class="film-img no-pointer glow-shadow" src="<%= @uniqueVenues[venue].image_url %>" />
-              <div class ="film-content m-2 mt-3">
-                <h1 class='film-title lead no-pointer'><%= @uniqueVenues[venue].name %></h1>     
-              </div> 
-            </div>
-              <div id="grid-expand-<%= @uniqueVenues[venue].id %>" class="grid-expand">
-                <div class="expand-overlay" id="expand-overlay-<%= @uniqueVenues[venue].id %>" onclick="toggleExpand(true,this.id)"></div>
-
-
-
-                  <div class="expand-content-venue p-4">
-                    <div class="mt-3 mr-4">
-                      <img class="expand-img glow-shadow m-3" src="<%= @uniqueVenues[venue].image_url %>" />
-                     
-                    </div>
-                    <div class="expand-text mt-3 ">
-                      <h1 class='film-title display-4'><%= @uniqueVenues[venue].name %></h1>
-                      <ul class="meta-list px-3">
-                        <li class="text-muted"><%= t('showings.index.location') %></li>
-                        <li class=""><%= @uniqueVenues[venue].location %></li>
-                        <hr class="no-pointer">
-                        <li class="text-muted"><%= t('venues.index.cap') %></li>
-                        <li class=""><%= @uniqueVenues[venue].rows * @uniqueVenues[venue].seats_per_row %><%= t('venues.index.cap2') %></li>
-                        <hr class="no-pointer">
-                        <li class="text-muted"><%= t('showings.index.select') %></li>
-                        <li class=""><%= @film.title %></li>
-                        <hr class="no-pointer">
-                        <li class="text-muted"><%= t('showings.index.times') %></li>
-                      </ul>
-                      
-  
-                    <div class="expand-close">
-                     <% @venueShowings[venue].each do |showing| %>
-                  <span class="badge badge-warning badge-pill m-2"><%= button_to showing.time.strftime('%H:%M'),new_booking_path, method: :get, params: { showing: showing }, class: "showing-time" %></span>
-                   
-                <% end %> 
-                  </div>
-                                      <button id="grid-close-<%= @uniqueVenues[venue].id %>"class="expand-close btn btn-sm btn-outline-secondary my-2" onclick="toggleExpand(false,this.id)"><%= t('films.film.close')%></button> 
-
-                  
-                </div>
-              </div>
-            </div>             
+  <div class='item-grid mx-2 py-4'>
+    <% (0..@uniqueVenues.length-1).each do |venue|%>
+      <div class = "grid-cell" id="grid-item-<%= @uniqueVenues[venue].id %>" onmouseenter="cellFade(true,this.id)" onmouseout="cellFade(false)" >
+        <div id="grid-thumb-<%= @uniqueVenues[venue].id %>" onclick="toggleExpand(true,this.id)">
+          <img class="film-img no-pointer glow-shadow" src="<%= @uniqueVenues[venue].image_url %>" />
+            <div class ="film-content m-2 mt-3">
+              <h1 class='film-title lead no-pointer'><%= @uniqueVenues[venue].name %></h1>     
+            </div> 
           </div>
-
-
-
-
-
-                  
-      <% end %>   
+          <div id="grid-expand-<%= @uniqueVenues[venue].id %>" class="grid-expand">
+            <div class="expand-overlay" id="expand-overlay-<%= @uniqueVenues[venue].id %>" onclick="toggleExpand(true,this.id)"></div>
+              <div class="expand-content-venue p-4">
+                <div class="mt-3 mr-4">
+                  <img class="expand-img glow-shadow m-3" src="<%= @uniqueVenues[venue].image_url %>" />
+                </div>
+                <div class="expand-text mt-3 ">
+                  <h1 class='film-title display-4'><%= @uniqueVenues[venue].name %></h1>
+                  <ul class="meta-list px-3">
+                    <li class="text-muted"><%= t('showings.index.location') %></li>
+                    <li class=""><%= @uniqueVenues[venue].location %></li>
+                    <hr class="no-pointer">
+                    <li class="text-muted"><%= t('venues.index.cap') %></li>
+                    <li class=""><%= @uniqueVenues[venue].rows * @uniqueVenues[venue].seats_per_row %><%= t('venues.index.cap2') %></li>
+                    <hr class="no-pointer">
+                    <li class="text-muted"><%= t('showings.index.select') %></li>
+                    <li class=""><%= @film.title %></li>
+                    <hr class="no-pointer">
+                    <li class="text-muted"><%= t('showings.index.times') %></li>
+                  </ul>
+                  <div class="expand-close">
+                    <% @venueShowings[venue].each do |showing| %>
+                      <span class="badge badge-warning badge-pill glow-shadow m-2"><%= button_to showing.time.strftime('%H:%M'),new_booking_path, method: :get, params: { showing: showing }, class: "showing-time" %></span>
+                    <% end %> 
+                  </div>
+                <button id="grid-close-<%= @uniqueVenues[venue].id %>"class="expand-close btn btn-sm btn-outline-secondary my-2" onclick="toggleExpand(false,this.id)"><%= t('films.film.close')%></button>   
+              </div>
+            </div>
+          </div>             
+        </div>           
+    <% end %>   
   </div>
 </div>
 

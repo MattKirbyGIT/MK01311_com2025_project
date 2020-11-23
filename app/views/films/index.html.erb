@@ -9,18 +9,15 @@
   </div>   
   <div class='item-grid mx-2 py-4'>
     <% @films.each do |film| %>
-    
-        <div class = "grid-cell" id="grid-item-<%= film.id %>" onmouseenter="cellFade(true,this.id)" onmouseout="cellFade(false)" >
-            <div id="grid-thumb-<%= film.id %>" onclick="toggleExpand(true,this.id)">
-            <img class="film-img no-pointer glow-shadow" src="<%= film.image_url %>" />
-              <div class ="film-content m-2 mt-3">
-                <h1 class='film-title lead no-pointer'><%= film.title %></h1>     
-              </div> 
-            </div>
-              <div id="grid-expand-<%= film.id %>" class="grid-expand">
-                <div class="expand-overlay" id="expand-overlay-<%= film.id %>" onclick="toggleExpand(true,this.id)"></div>
-
-
+      <div class = "grid-cell" id="grid-item-<%= film.id %>" onmouseenter="cellFade(true,this.id)" onmouseout="cellFade(false)" >
+        <div id="grid-thumb-<%= film.id %>" onclick="toggleExpand(true,this.id)">
+          <img class="film-img no-pointer glow-shadow" src="<%= film.image_url %>" />
+          <div class ="film-content m-2 mt-3">
+            <h1 class='film-title lead no-pointer'><%= film.title %></h1>     
+          </div> 
+        </div>
+        <div id="grid-expand-<%= film.id %>" class="grid-expand">
+          <div class="expand-overlay" id="expand-overlay-<%= film.id %>" onclick="toggleExpand(true,this.id)"></div>
 
                   <div class="expand-content p-4">
                     <div class="mt-3 mr-4">

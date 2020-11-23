@@ -25,19 +25,20 @@ function toggleSeatSelector(show){
     } else {
         $("#seat-selector").fadeOut(200);
     }
+    
 }
 
 var seats = [];
 
 function seatSelect(seat, row){
-   var seats_amount_select = document.getElementById("seats-amount");
-   var seats_amount_opt = seats_amount_select.options[seats_amount_select.selectedIndex].value
+    $('#seat'+seat+'row'+row).attr('disabled', true);
+   var seats_amount_opt = getSelectedSeats();
    var selectedSeat = [seat,row];
 
    if(!JSON.stringify(seats).includes(JSON.stringify(selectedSeat))){
         if(seats.length < seats_amount_opt ) {
-        seats.push(selectedSeat)
-        document.getElementById('seat'+seat+'row'+row).classList.add("seat-select")
+            seats.push(selectedSeat)
+            document.getElementById('seat'+seat+'row'+row).classList.add("seat-select")
         }   
     } else { 
         for (var i = 0; i < seats.length; i++){
@@ -47,5 +48,38 @@ function seatSelect(seat, row){
             }
         }
     }
-   console.log(seats) 
+
+    document.getElementById("seat-counter").innerHTML = (seats_amount_opt - seats.length)
+//    console.log(seats) 
+$('#seat'+seat+'row'+row).attr('enabled', true);
 }
+
+
+function bookingFormSubmit(){ 
+    $("#booking-form").submit(function(e){
+        e.preventDefault();
+           if(seats.length < getSelectedSeats()){
+               //error
+               console.log("magno")
+           } else {
+            $.ajax({
+                url: "/bookings",
+                data: {
+                   booking: $("#booking-form").serializeArray(),
+                   seatPosArray: seats,
+                    
+                },
+                type: "post"
+            })
+           }        
+     });  
+}
+
+function getSelectedSeats(){
+    var seats_amount_select = document.getElementById("seats-amount");
+    var seats_amount_opt = seats_amount_select.options[seats_amount_select.selectedIndex].value
+    return seats_amount_opt;
+}
+
+
+

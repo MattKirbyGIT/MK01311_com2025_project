@@ -10,6 +10,7 @@
 .form-input {
   display: inline-flex;
   flex-direction: column;
+  width: 100%;
 }
 
 ::placeholder {
@@ -20,7 +21,7 @@
 
 .text-input {
   color: $heading-secondary;
-  font-size: 1.75em;
+  font-size: 1.5em;
 
   background: none !important;
   border: none;
@@ -32,6 +33,13 @@
 
 .seats-amount {
   display: inline-flex;
+}
+
+.seat-amount-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 100%;
 }
 
 .seat-selector {
@@ -72,8 +80,9 @@
   text-align: center;
   flex: 1 0 auto;
   height: auto;
-  border: 1px solid grey;
+  border: 0px solid grey;
   transition: all 200ms;
+  background-color: rgb(24, 24, 24);
 }
 .flex-item:before {
   content: "";
@@ -82,8 +91,8 @@
 }
 
 .flex-item:hover {
-  border-color: white;
-  background-color: white;
+  border-color: $text-muted;
+  background-color: $text-muted;
   transition: all 200ms;
 }
 
@@ -93,11 +102,11 @@
 }
 
 .seat-occupied {
-  background-color: $warning;
-  border-color: $warning;
+  border-color: $danger;
+  background-color: $danger;
 }
 
 .seat-select {
-  background-color: $info;
-  border-color: $info;
+  border-color: white;
+  background-color: $warning;
 }

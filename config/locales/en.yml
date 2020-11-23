@@ -76,7 +76,7 @@ en:
 
   bookings:
     new:
-      title: "Tickets for: "
+      title: "Book tickets"
       description: "Fill in your personal details below."
 
     form:
@@ -86,7 +86,13 @@ en:
       name: "Enter your name"
       email: "Enter your Email address"
       seats: "Select your desired number of seats"
+      position: "Select the position of your seats on the overview below."
       req: "Required"
       select: "Select seats"
-      screen: "Screen"
+      screen: "Front row (Screen)"
       row: "Row "
+      cinemaOverview: "Seating overview"
+      seats_remaining: "Number of seats remaining to select: "
+      e-ticket: "CineView E-ticket code: "
+      price: "Price (per ticket)"
+      copy: "Copy to clipboard"

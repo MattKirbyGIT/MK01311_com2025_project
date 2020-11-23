@@ -1,4 +1,4 @@
-<%= form_with(model: booking, local: true) do |form| %>
+<%= form_with(model: booking, local: true, id: "booking-form") do |form| %>
   <% if booking.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
@@ -12,16 +12,6 @@
   <% end %>
 
   <ul class="meta-list px-3 form-list">
-    <li class="text-muted"><%= t('bookings.form.film') %></li>
-    <li class=""><%= @booking.showing.film.title %></li>
-    <hr class="no-pointer">
-    <li class="text-muted"><%= t('bookings.form.venue') %></li>
-    <li class=""><%= @booking.showing.venue.name %></li>
-    <hr class="no-pointer">
-    <li class="text-muted"><%= t('bookings.form.time') %></li>
-    <li class=""><%= @booking.showing.time.strftime('%H:%M') %></li>
-    <hr class="no-pointer">
-
     <li>
       <label class="form-input text-muted">
         <%= t('bookings.form.name') %>
@@ -41,68 +31,36 @@
     <li>
       <label class="form-input text-muted">
         <%= t('bookings.form.seats') %>
-        <select id="seats-amount" class="seats-amount text-input p-1 m-2" ></select>
-        <button type="button" class="btn btn-sm btn-outline-warning my-2" onclick="toggleSeatSelector(true)"><%= t('bookings.form.select')%></button> 
+        <div class="seat-amount-wrapper">
+          <select id="seats-amount" class="seats-amount text-input p-1 m-2" ></select>
+          <button type="button" class="btn btn-sm btn-outline-warning my-2" onclick="toggleSeatSelector(true)"><%= t('bookings.form.select')%></button> 
+        </div>
       </label>
       <hr class="no-pointer mt-0">
     </li>
-    
+
+    <li>
+      <label class="form-input text-muted">
+        <%= t('bookings.form.e-ticket') %>
+        <div class="seat-amount-wrapper">
+          <span class=" text-input p-2 no-pointer"><%= @booking.E_ticket %></span>
+          <button type="button" class="btn btn-sm btn-outline-info my-2" onclick="toggleSeatSelector(true)"><%= t('bookings.form.copy')%></button> 
+        </div>
+      </label>
+      <hr class="no-pointer mt-0">
+    </li>
+
+    <%= form.hidden_field :showing_id%>
+    <%= form.hidden_field :seat%>
+    <%= form.hidden_field :row%>
+    <%= form.hidden_field :E_ticket%>
+ 
   </ul>
 
-  <div id="seat-selector" class="seat-selector">
-    <div class="expand-overlay" id="" onclick="toggleSeatSelector(false)"></div>
-    <div class="selector-content">
-
-      <ul class="meta-list px-3 form-list">
-        <li class=""><%= t('bookings.form.select') %></li>
-        <hr class="no-pointer">
-        <li class="mb-2"><%= t('bookings.form.screen') %></li>
-        
-        
-        <% (1..@booking.showing.venue.rows).each do |row|%>
-         <p class="seat-num text-muted" ><%= t('bookings.form.row') %><%= row %></p>
-          <div class="flex-container">
-            <% (1..@booking.showing.venue.seats_per_row).each do |seat|%>
-            <% free = true%>
-            <% @occupied.each do |occupied|%>
-              <% if occupied[0] == seat && occupied[1] == row%>
-                <% free = false%>
-              <% end %>
-            <% end %>
-              <% if free %>
-                <div id = "seat<%= seat %>row<%= row %>"class="flex-item glow-shadow-2" onclick="seatSelect(<%= seat %>,<%= row %>)"></div>
-              <%else%>
-                <div id = "seat<%= seat %>row<%= row %>"class="flex-item seat-occupied glow-shadow-2" ></div>
-              <% end %>  
-            <% end %>
-          </div>
-        <% end %>
-      </ul> 
-    </div>
-  </div>
-
-
-
- 
-
-  <div class="field">
-    <%= form.label :seat %>
-    <%= form.hidden_field :seat %>
-  </div>
-
-  <div class="field">
-    <%= form.label :row %>
-    <%= form.number_field :row %>
-  </div>
-
-  <div class="field">
-    <%= form.label :E_ticket %>
-    <%= form.text_field :E_ticket %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= render 'seat_selector', booking: @booking %> 
+  
+  <button id="bookingSubmit" class="btn btn-outline-info m-3" type="submit">Submit</button>  
 <% end %>
 
 <script>handleOptions()</script>
+<script>bookingFormSubmit()</script>
