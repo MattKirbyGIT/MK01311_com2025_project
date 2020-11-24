@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<div class="wrapper">
+    <div class="test jumbo jumbotron col-lg-6 col-md-10 col-sm-12 col-xs-12  offset-md-1 offset-lg-3 float-md-center my-4">
+        <div class="container">
+            <h1 class="title display-4"><%= t('my_bookings.index.title') %></h1>
+            <p class="lead no-pointer"><%= t('my_bookings.index.description') %></p>
+            <hr class="my-4 no-pointer">
+            <%= form_with(url: "/find", method: "get") do |form| %>
+             <label class="form-input mb-0 text-muted">
+              <%= t('my_bookings.index.E-ticket') %>
+                  
+                <div class="seat-amount-wrapper">   
+                  <%= form.text_field :E_ticket, class: "text-input p-2", placeholder: t('bookings.form.req'), required: true, type: "text" %>
+                  
+                  <%= form.submit t('my_bookings.index.submit'), class: "btn btn-lg search btn-outline-success mx-2 my-2 my-lg-0" %>  
+                </div>
+                
+              </label>
+       
+
+              
+             <% end %>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

@@ -22,9 +22,11 @@
 .text-input {
   color: $heading-secondary;
   font-size: 1.5em;
-
+  display: flex;
+  flex-grow: 1;
   background: none !important;
   border: none;
+  min-width: 120px;
 }
 
 .input-option {
@@ -47,11 +49,14 @@
 }
 
 .selector-content {
+  height: 80vh;
   position: absolute;
   max-width: 500px;
   width: 80%;
   border-radius: 15px;
   z-index: 10;
+
+  overflow: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -109,4 +114,8 @@
 .seat-select {
   border-color: white;
   background-color: $warning;
+}
+
+.search {
+  white-space: nowrap;
 }

@@ -96,3 +96,13 @@ en:
       e-ticket: "CineView E-ticket code: "
       price: "Price (per ticket)"
       copy: "Copy to clipboard"
+
+  my_bookings:
+    index:
+      title: "Search bookings"
+      description: "Enter your E-ticket code in the field below to find your booking infomation."
+      E-ticket: Enter your CineView E-ticket code
+      submit: Find my bookings
+
+  test:
+    test: hello

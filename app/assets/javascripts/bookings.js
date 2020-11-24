@@ -81,5 +81,18 @@ function getSelectedSeats(){
     return seats_amount_opt;
 }
 
+function handleClipboard(){
+    var tempInput = document.createElement("input");
+    
+    tempInput.value = document.getElementById("e-ticket-code").innerHTML
+    console.log(tempInput.value)
+    document.body.appendChild(tempInput);
+  
+    tempInput.select();
+    document.execCommand("copy")
+    tempInput.style.visibility = "hidden";
+    document.body.removeChild(tempInput);
+}
+
 
 

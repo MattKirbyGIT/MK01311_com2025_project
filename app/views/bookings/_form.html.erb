@@ -43,8 +43,8 @@
       <label class="form-input text-muted">
         <%= t('bookings.form.e-ticket') %>
         <div class="seat-amount-wrapper">
-          <span class=" text-input p-2 no-pointer"><%= @booking.E_ticket %></span>
-          <button type="button" class="btn btn-sm btn-outline-info my-2" onclick="toggleSeatSelector(true)"><%= t('bookings.form.copy')%></button> 
+          <span id="e-ticket-code" class=" text-input p-2 no-pointer"><%= @booking.E_ticket %></span>
+          <button id="clipboard-btn" type="button" class="btn btn-sm btn-outline-info my-2" onclick="handleClipboard()"><%= t('bookings.form.copy')%></button> 
         </div>
       </label>
       <hr class="no-pointer mt-0">

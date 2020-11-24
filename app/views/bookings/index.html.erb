@@ -1,37 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Bookings</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Showing</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Seat</th>
-      <th>Row</th>
-      <th>E ticket</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @bookings.each do |booking| %>
-      <tr>
-        <td><%= booking.showing %></td>
-        <td><%= booking.name %></td>
-        <td><%= booking.email %></td>
-        <td><%= booking.seat %></td>
-        <td><%= booking.row %></td>
-        <td><%= booking.E_ticket %></td>
-        <td><%= link_to 'Show', booking %></td>
-        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="wrapper">
+    <div class="test jumbo jumbotron col-lg-6 col-md-10 col-sm-12 col-xs-12  offset-md-1 offset-lg-3 float-md-center my-4">
+        <div class="container">
+            <h1 class="title display-4"><%= t('bookings.index.title') %></h1>
+            <p class="lead no-pointer"><%= t('bookings.index.description') %></p>
+            <hr class="my-4 no-pointer">
+            <%= form_with(url: "/search", method: "get") do |form| %>
+             <label class="form-input mb-0 text-muted">
+              <%= t('bookings.index.E-ticket') %>
+                  
+                <div class="seat-amount-wrapper">   
+                  <%= form.text_field :name, class: "text-input p-2", placeholder: t('bookings.form.req'), required: true, type: "text" %>
+                  <button id="search" class="btn btn-lg search btn-outline-success mx-2 my-2 my-lg-0'" type="submit"><%= t('bookings.index.submit') %></button>  
+                </div>
+                  
+                   
+              </label>
+       
+              
+             <% end %>
+        </div>
+    </div>
+</div>
 
-<br>
 
-<%= link_to 'New Booking', new_booking_path %>
+
+
+
+

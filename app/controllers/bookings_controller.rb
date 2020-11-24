@@ -57,23 +57,27 @@ class BookingsController < ApplicationController
     new_booking["showing_id"] = booking_hash[4].values[1].to_i
     new_booking["E_ticket"] = booking_hash[7].values[1]      
    
-
+    valid = true
     seatsHash.each do |key, value|
-      
       new_booking["seat"] = value[0] 
       new_booking["row"] = value[1]
       @booking = Booking.new(new_booking)
-   
-      respond_to do |format|
-        if @booking.save
-          format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
-          format.json { render :show, status: :created, location: @booking }
-        else
-          format.html { render :new }
-          format.json { render json: @booking.errors, status: :unprocessable_entity }
-        end
-      end
+
+     
+      if !@booking.save
+        valid = false
+      end 
     end 
+
+    respond_to do |format|
+      if valid
+        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
+        format.json { render :show, status: :created, location: @booking }
+      else
+        format.html { render :new }
+        format.json { render json: @booking.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
 
