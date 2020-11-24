@@ -8,7 +8,7 @@
             <h1 class="title display-4"><%= t('my_bookings.index.title') %></h1>
             <p class="lead no-pointer"><%= t('my_bookings.index.description') %></p>
             <hr class="my-4 no-pointer">
-            <%= form_with(url: "/find", method: "get") do |form| %>
+            <%= form_with(local: true, url: '/mybookings/find', method: 'get') do |form| %>
              <label class="form-input mb-0 text-muted">
               <%= t('my_bookings.index.E-ticket') %>
                   

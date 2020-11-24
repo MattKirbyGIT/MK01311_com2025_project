@@ -8,7 +8,7 @@ class ShowingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get showings_url
+    get showings_url, params: { film: @film.id}
     assert_response :success
   end
 

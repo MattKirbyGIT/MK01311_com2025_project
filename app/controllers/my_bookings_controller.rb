@@ -9,7 +9,7 @@ class MyBookingsController < ApplicationController
         
               format.html { render :find}
             else
-                format.html { render 'mybookings/find'}
+                format.html { render :find}
              
             end
           end

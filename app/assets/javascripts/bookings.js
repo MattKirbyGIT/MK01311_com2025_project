@@ -63,7 +63,7 @@ function bookingFormSubmit(){
                console.log("magno")
            } else {
             $.ajax({
-                url: "/bookings",
+                url: "/book",
                 data: {
                    booking: $("#booking-form").serializeArray(),
                    seatPosArray: seats,

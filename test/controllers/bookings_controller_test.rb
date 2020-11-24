@@ -3,6 +3,9 @@ require 'test_helper'
 class BookingsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @booking = bookings(:one)
+    @showing = showings(:one)
+    @film = films(:one)
+    @showing.film_id = @film.id
   end
 
   test "should get index" do
@@ -11,13 +14,14 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_booking_url
+    puts new_booking_url
+    get new_booking_url, params: {showing: @showing.id}
     assert_response :success
   end
 
   test "should create booking" do
     assert_difference('Booking.count') do
-      post bookings_url, params: { booking: { E_ticket: @booking.E_ticket, email: @booking.email, name: @booking.name, row: @booking.row, seat: @booking.seat, showing_id: @booking.showing_id } }
+      post bookings_url, params: { booking: { E_ticket: @booking.E_ticket, email: @booking.email, name: @booking.name, row: @booking.row, seat: @booking.seat, showing_id: @showing.id } }
     end
 
     assert_redirected_to booking_url(Booking.last)
@@ -34,7 +38,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update booking" do
-    patch booking_url(@booking), params: { booking: { E_ticket: @booking.E_ticket, email: @booking.email, name: @booking.name, row: @booking.row, seat: @booking.seat, showing_id: @booking.showing_id } }
+    patch booking_url(@booking), params: { booking: { E_ticket: @booking.E_ticket, email: @booking.email, name: @booking.name, row: @booking.row, seat: @booking.seat, showing_id: @showing.id } }
     assert_redirected_to booking_url(@booking)
   end
 

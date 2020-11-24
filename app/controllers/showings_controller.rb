@@ -1,25 +1,19 @@
 class ShowingsController < ApplicationController
-  # before_action :set_showing, only: [:show, :edit, :update, :destroy]
+  before_action :set_showing, only: [:show, :edit, :update, :destroy]
 
   
 
   # GET /showings
   # GET /showings.json
-  def index
-   
+  def index  
     @film = Film.find(params[:film])
     @showings = Showing.where(film: params[:film])
     uniqueVenue_ids = Showing.where(film: params[:film]).pluck(:venue_id).uniq
     @uniqueVenues = Venue.find(uniqueVenue_ids)
-
-    
-    
     @venueShowings = []
-
     @uniqueVenues.each do |i|
       @venueShowings.append(Showing.where(film: params[:film],venue_id: i.id))
     end
-
   end
 
  
@@ -36,6 +30,7 @@ class ShowingsController < ApplicationController
 
   # GET /showings/1/edit
   def edit
+  
   end
 
   # POST /showings

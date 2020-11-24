@@ -10,10 +10,6 @@ class FilmsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_film_url
-    assert_response :success
-  end
 
   test "should create film" do
     assert_difference('Film.count') do
@@ -23,15 +19,6 @@ class FilmsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to film_url(Film.last)
   end
 
-  test "should show film" do
-    get film_url(@film)
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_film_url(@film)
-    assert_response :success
-  end
 
   test "should update film" do
     patch film_url(@film), params: { film: { description: @film.description, image_url: @film.image_url, minimum_age_restriction: @film.minimum_age_restriction, rating: @film.rating, release_date: @film.release_date, running_time_mins: @film.running_time_mins, title: @film.title } }
