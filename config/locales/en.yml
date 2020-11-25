@@ -104,5 +104,6 @@ en:
       E-ticket: Enter your CineView E-ticket code
       submit: Find my bookings
 
-  test:
-    test: hello
+    find:
+      title: "My bookings"
+      description: "View your recent bookings here."

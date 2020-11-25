@@ -1,1 +1,35 @@
-<h1>TEst</h1>
+<div class="wrapper-inner px-4">
+    <div class="heading mx-2 mb-4">
+        <h1 class="title display-4"><%= t('my_bookings.find.title') %></h1>
+        <p class="description lead"><%= t('my_bookings.find.description') %></p>
+    </div>
+    <div class="">
+        <table class="table table-hover">
+            <thead class="">
+                <tr>
+                <th scope="col">Seat</th>
+                <th scope="col">Row</th>
+                <th scope="col">Price</th>
+           
+                
+                <th colspan="3"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @bookings.each do |venue| %>
+                <tr>
+                    <td><%= venue.seat %></td>
+                    <td><%= venue.row %></td>
+                    <td><%= venue.showing.price %></td>
+          
+                 
+                    <td><%= link_to 'Show', venue %></td>
+              
+                    <td><%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>    
