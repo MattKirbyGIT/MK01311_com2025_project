@@ -1,3 +1,51 @@
 // Place all the styles related to the My_Bookings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "globalStyles";
+
+.find-content {
+  width: 95%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.find-img-meta {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.find-meta-list {
+  font-size: small;
+  color: white;
+  list-style: none;
+}
+
+.find-table {
+  width: 100%;
+  table-layout: fixed;
+  font-size: small;
+}
+
+.find-table-heading {
+  font-weight: 200 !important;
+}
+
+.find-table-row {
+  color: white;
+  height: 50px;
+}
+
+.find-table-body {
+  color: white;
+}
+
+.find-title {
+  font-size: medium;
+  color: $text-muted;
+}
+
+.find-price {
+  color: white;
+}

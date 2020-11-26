@@ -107,3 +107,8 @@ en:
     find:
       title: "My bookings"
       description: "View your recent bookings here."
+      seats: "Your seats"
+      show: "Info"
+      cancel: "Cancel"
+      price: "Total price"
+      seatsAmount: "Number of seats"

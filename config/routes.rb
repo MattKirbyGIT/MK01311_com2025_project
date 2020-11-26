@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'mybookings', to: 'my_bookings#index'
   get 'mybookings/find', to: "my_bookings#find"
   post 'book', to: "bookings#parseAjax"
+
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

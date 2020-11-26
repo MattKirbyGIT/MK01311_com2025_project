@@ -4,6 +4,7 @@ class MyBookingsController < ApplicationController
         query = params[:E_ticket]
 
         @bookings =  Booking.where(E_ticket: query)
+        
         respond_to do |format|
             if @bookings.length > 0
         

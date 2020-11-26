@@ -37,8 +37,6 @@ class BookingsController < ApplicationController
     end
 
   @booking.E_ticket = new_E_ticket;
-
-
   end
 
   # GET /bookings/1/edit
@@ -78,13 +76,29 @@ class BookingsController < ApplicationController
     new_booking["showing_id"] = booking_hash[4].values[1].to_i
     new_booking["E_ticket"] = booking_hash[7].values[1]      
    
+    valid = true
     seatsHash.each do |key, value|
       new_booking["seat"] = value[0] 
       new_booking["row"] = value[1]
       @booking = Booking.create(new_booking)
-      @booking.save     
+
+        if !@booking.save
+         valid = false
+        end
     end 
+
+    respond_to do |format|
+      if valid
+        format.html { redirect_to :controller => "my_bookings", :action => "find", :E_ticket => @booking.E_ticket}
+      else
+        format.html { render :new }
+        format.json { render json: @booking.errors, status: :unprocessable_entity }
+      end
+    end
   end
+
+ 
+  
 
 
   # PATCH/PUT /bookings/1
