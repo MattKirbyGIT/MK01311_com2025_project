@@ -1,24 +1,15 @@
-
 <nav class="nav navbar navbar-expand-lg navbar-dark py-3" id="main-header">
     <a class="navbar-brand text-info mx-2" href="/"><%= t('global.app_title') %></a>
     <button class="navbar-toggler mx-2" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav ml-auto">
-       
-     
-      <%= link_to t('header.browse'), films_path, class: 'btn btn-lg btn-outline-info mx-2 my-2 my-lg-0' %>
-      
-      <%= link_to t('header.contact'), '/book', class: 'btn btn-lg btn-outline-warning mx-2 my-2 my-lg-0' %>
+      <ul class="navbar-nav ml-auto"> 
+        <%= link_to t('header.browse'), films_path, class: 'btn btn-lg btn-outline-info mx-2 my-2 my-lg-0' %>
+        <%= link_to t('header.bookings'), 'mybookings', class: 'btn btn-lg btn-outline-success mx-2 my-2 my-lg-0' %>
+        <%= link_to t('header.contact'), '/book', class: 'btn btn-lg btn-outline-warning mx-2 my-2 my-lg-0' %>
       </ul>
-    
     </div>
-
-  
-  
   </div>
-
-  </nav>
+</nav>
  

@@ -42,6 +42,7 @@ en:
     book: "Book tickets"
     contact: Contact us
     browse: "Browse films"
+    bookings: "My bookings"
 
   home:
     title: "Book your seat."
