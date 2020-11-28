@@ -20,6 +20,7 @@ function handleOptions(){
 }
 
 function toggleSeatSelector(show){
+    handleSeatCounter()
     if(show){
         $("#seat-selector").fadeIn(200);
     } else {
@@ -32,11 +33,10 @@ var seats = [];
 
 function seatSelect(seat, row){
     $('#seat'+seat+'row'+row).attr('disabled', true);
-   var seats_amount_opt = getSelectedSeats();
-   var selectedSeat = [seat,row];
-
-   if(!JSON.stringify(seats).includes(JSON.stringify(selectedSeat))){
-        if(seats.length < seats_amount_opt ) {
+  
+    var selectedSeat = [seat,row];
+    if(!JSON.stringify(seats).includes(JSON.stringify(selectedSeat))){
+        if(seats.length < getSelectedSeats() ) {
             seats.push(selectedSeat)
             document.getElementById('seat'+seat+'row'+row).classList.add("seat-select")
         }   
@@ -48,10 +48,8 @@ function seatSelect(seat, row){
             }
         }
     }
-
-    document.getElementById("seat-counter").innerHTML = (seats_amount_opt - seats.length)
-//    console.log(seats) 
-$('#seat'+seat+'row'+row).attr('enabled', true);
+    handleSeatCounter() 
+    $('#seat'+seat+'row'+row).attr('enabled', true);
 }
 
 
@@ -59,15 +57,13 @@ function bookingFormSubmit(){
     $("#booking-form").submit(function(e){
         e.preventDefault();
            if(seats.length < getSelectedSeats()){
-               //error
-               console.log("magno")
+            setErrorMessage(getSelectedSeats() - seats.length + " seats remaining to select!");
            } else {
             $.ajax({
                 url: "/book",
                 data: {
                    booking: $("#booking-form").serializeArray(),
-                   seatPosArray: seats,
-                    
+                   seatPosArray: seats,      
                 },
                 type: "post"
             })
@@ -81,17 +77,32 @@ function getSelectedSeats(){
     return seats_amount_opt;
 }
 
+function handleSeatCounter(){
+    var total = getSelectedSeats();
+    var remaining = total - seats.length;
+    var counter = document.getElementById("seat-counter");
+    if(remaining == 0){
+        counter.innerHTML = "No seats remaining!"
+        counter.classList.add("text-info");
+    } else {
+        counter.innerHTML = remaining;
+        counter.classList.remove("text-info");  
+    }
+}
+
 function handleClipboard(){
-    var tempInput = document.createElement("input");
-    
+    var tempInput = document.createElement("input");  
     tempInput.value = document.getElementById("e-ticket-code").innerHTML
     console.log(tempInput.value)
     document.body.appendChild(tempInput);
-  
     tempInput.select();
     document.execCommand("copy")
     tempInput.style.visibility = "hidden";
     document.body.removeChild(tempInput);
+}
+
+function setErrorMessage(msg){
+    document.getElementById("seat-error").innerHTML = msg;
 }
 
 

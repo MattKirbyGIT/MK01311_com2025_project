@@ -113,7 +113,7 @@
 
 .seat-select {
   border-color: white;
-  background-color: $warning;
+  background-color: $info;
 }
 
 .search {
@@ -125,4 +125,7 @@
   width: 95%;
   margin: auto;
   display: flex;
+}
+
+#seat-error {
 }
