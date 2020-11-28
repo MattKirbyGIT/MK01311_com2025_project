@@ -1,9 +1,8 @@
-
-
 <div class="wrapper-inner px-4">
     <div class="heading mx-2 mb-4">
      <h1 class="title display-4"><%= t('my_bookings.find.title') %></h1>
         <p class="description lead"><%= t('my_bookings.find.description') %></p>
+        <p id="notice" class="text-danger"><%= notice %></p>
     </div>   
   
   <div class="find-content">
@@ -30,19 +29,16 @@
                     <th scope="col">Seat</th>
                     <th scope="col">Row</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Show full details</th>
                     <th scope="col">Remove seat</th>
                 </tr>
             </thead>
-
             <tbody class="find-table-body">
                 <% @bookings.each do |venue| %>
                 <tr class="find-table-row border-bottom">
                     <td><%= venue.seat %></td>
                     <td><%= venue.row %></td>
                     <td><%= number_to_currency(venue.showing.price) %></td>
-                    <td><%= button_to t('my_bookings.find.show'), venue, class: "btn btn-outline-info" %></td>
-                    <td><%= button_to t('my_bookings.find.cancel'), venue, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %></td>
+                    <td><%= button_to t('my_bookings.find.cancel'), venue, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-block" %></td>
                 </tr>
                 <% end %>
             </tbody>

@@ -89,7 +89,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if valid
-        format.html { redirect_to :controller => "my_bookings", :action => "find", :E_ticket => @booking.E_ticket}
+        format.html { redirect_to :controller => "my_bookings", :action => "find", :E_ticket => @booking.E_ticket, :notice => "Booking Successful!"}
       else
         format.html { render :new }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
@@ -104,7 +104,6 @@ class BookingsController < ApplicationController
   # PATCH/PUT /bookings/1
   # PATCH/PUT /bookings/1.json
   def update
-    puts params.inspect
     respond_to do |format|
       if @booking.update(booking_params)
         format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
@@ -121,8 +120,10 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to bookings_url, notice: 'Booking was successfully destroyed.' }
-      format.json { head :no_content }
+    format.html { redirect_to root_url, notice: 'Booking was successfully destroyed.' }
+    format.json { head :no_content }
+   
+     
     end
   end
 
@@ -130,6 +131,7 @@ class BookingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_booking
       @booking = Booking.find(params[:id])
+     
     end
 
     # Only allow a list of trusted parameters through.

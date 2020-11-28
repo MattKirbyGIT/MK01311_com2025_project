@@ -52,7 +52,7 @@ en:
   films:
     index:
       title: "What's on"
-      description: "Browse films currently showing in our CineView cinemas."
+      description: "Browse the latest films showing in our CineView cinemas."
       more: "More info"
 
     film:
@@ -68,7 +68,7 @@ en:
       title: "Watch: "
       description: "Select your desired CineView venue and showing time for your selected film."
       select: "Selected film: "
-      times: "Available showing times"
+      times: "Select an available showing time"
 
   venues:
     index:
@@ -104,6 +104,7 @@ en:
       description: "Enter your E-ticket code in the field below to find your booking infomation."
       E-ticket: Enter your CineView E-ticket code
       submit: Find my bookings
+      notFound: "E-ticket not found!"
 
     find:
       title: "My bookings"

@@ -25,7 +25,7 @@ function toggleSeatSelector(show){
     } else {
         $("#seat-selector").fadeOut(200);
     }
-    
+    return false;
 }
 
 var seats = [];
