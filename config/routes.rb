@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :venues, except: [:new, :create, :edit, :update, :destroy]
-  resources :showings
-  resources :bookings
+  resources :showings, except: [:new, :create, :edit, :update, :destroy]
+  resources :bookings, except: [:show, :edit, :update, :index]
   resources :films, except: [:new, :create, :show, :edit, :update, :destroy]
   root 'home#index'
   get 'film', to: "films#index"

@@ -5,82 +5,22 @@ class ShowingsController < ApplicationController
 
   # GET /showings
   # GET /showings.json
-  def index  
-    @film = Film.find(params[:film])
-    @showings = Showing.where(film: params[:film])
-    uniqueVenue_ids = Showing.where(film: params[:film]).pluck(:venue_id).uniq
-    @uniqueVenues = Venue.find(uniqueVenue_ids)
-    @venueShowings = []
-    @uniqueVenues.each do |i|
-      @venueShowings.append(Showing.where(film: params[:film],venue_id: i.id))
+  def index 
+    if params[:film].present?
+      @film = Film.find(params[:film])
+      @showings = Showing.where(film: params[:film])
+      uniqueVenue_ids = Showing.where(film: params[:film]).pluck(:venue_id).uniq
+      @uniqueVenues = Venue.find(uniqueVenue_ids)
+      @venueShowings = []
+      @uniqueVenues.each do |i|
+        @venueShowings.append(Showing.where(film: params[:film],venue_id: i.id))
+      end
+    else
+      redirect_to root_url, notice: "Error selecting showing. No film selected!"
     end
   end
 
  
 
-  # GET /showings/1
-  # GET /showings/1.json
-  def show
-  end
-
-  # GET /showings/new
-  def new
-    @showing = Showing.new
-  end
-
-  # GET /showings/1/edit
-  def edit
   
-  end
-
-  # POST /showings
-  # POST /showings.json
-  def create
-    @showing = Showing.new(showing_params)
-
-    respond_to do |format|
-      if @showing.save
-        format.html { redirect_to @showing, notice: 'Showing was successfully created.' }
-        format.json { render :show, status: :created, location: @showing }
-      else
-        format.html { render :new }
-        format.json { render json: @showing.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /showings/1
-  # PATCH/PUT /showings/1.json
-  def update
-    respond_to do |format|
-      if @showing.update(showing_params)
-        format.html { redirect_to @showing, notice: 'Showing was successfully updated.' }
-        format.json { render :show, status: :ok, location: @showing }
-      else
-        format.html { render :edit }
-        format.json { render json: @showing.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /showings/1
-  # DELETE /showings/1.json
-  def destroy
-    @showing.destroy
-    respond_to do |format|
-      format.html { redirect_to showings_url, notice: 'Showing was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_showing
-      @showing = Showing.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def showing_params
-      params.require(:showing).permit(:film_id, :venue_id, :date, :time, :price)
-    end
 end
