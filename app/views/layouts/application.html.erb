@@ -9,10 +9,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-   <body>
-  <%= render 'shared/header' %>
+  <body>
+    <%= render 'shared/header' %>
+
+    <% flash.each do |key,msg| %>
+      <div class="alert alert-info">
+        <%= msg %>
+      </div>
+    <% end %>
+    
     <%= yield %>
 
     <%= render 'shared/footer' %>
+
   </body>
 </html>

@@ -11,5 +11,34 @@
 }
 
 hr {
-  border-color: $heading-secondary;
+  border: 0;
+  clear: both;
+  display: block;
+  width: 100%;
+  background-color: $heading-secondary;
+  height: 1px;
+}
+
+.contact-form {
+  margin: auto;
+  color: $text-muted;
+  font-weight: 300;
+  max-width: 600px;
+  display: flex !important;
+  flex-direction: column;
+}
+
+.contact-input {
+  color: white;
+  background: none;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  margin-left: 16px;
+  font-size: large;
+}
+
+.contact-label {
+  font-size: small;
+  margin: 5px;
 }
