@@ -64,11 +64,11 @@ en:
       submit: "Contact Us"
       req: "Required"
 
-    request_mailer:
+    mailer:
       no_email: "Email field cannot be blank!"
       email_sent: "Message sent!"
 
-      films:
+  films:
     index:
       title: "What's on"
       description: "Browse the latest films showing in our CineView cinemas."

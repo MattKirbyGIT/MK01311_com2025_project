@@ -12,10 +12,10 @@ class HomeController < ApplicationController
     message = params[:message]
     
     if email.blank?
-      flash[:alert] = I18n.t('home.request_contact.no_email')
+      flash[:alert] = t('home.mailer.no_email')
     
     else# Send an email
-      flash[:notice] = I18n.t('home.request_contact.email_sent')
+      flash[:notice] = t('home.mailer.email_sent')
     end
     redirect_to root_path
   end
