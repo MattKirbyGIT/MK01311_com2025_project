@@ -5,8 +5,4 @@ class VenuesControllerTest < ActionDispatch::IntegrationTest
     @venue = venues(:one)
   end
 
- 
-
-
-
 end
