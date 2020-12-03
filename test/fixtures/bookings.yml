@@ -12,6 +12,6 @@ two:
   showing: two
   name: MyString
   email: MyString
-  seat: 1
+  seat: 2
   row: 1
   E_ticket: MyString

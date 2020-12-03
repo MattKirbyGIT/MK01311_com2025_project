@@ -73,14 +73,16 @@ en:
       title: "What's on"
       description: "Browse the latest films showing in our CineView cinemas."
       more: "More info"
+      book: "Book tickets for: "
+      close: Close
 
     film:
       rd: "Release Date: "
       rating: "Rating: "
       rtm: "Length (mins): "
       ma: "Minimum Age: "
-      book: "Book tickets for: "
-      close: Close
+      back: "Back to films"
+      no_film: "Can't find requested film!"
 
   showings:
     index:

@@ -4,6 +4,9 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
   test "should get home" do
     get root_url
     assert_response :success
+
+    assert_select 'h1','Book your seat.'
+    assert_select 'p','Use this web app to book seats at your favourite cinemas.'
   end
 
   test "should get contact" do
@@ -11,6 +14,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     
     assert_select 'h1','Contact Us'
+    assert_select 'p', 'Complete the form below to get in contact with us.'
   end
 
   test "should post request contact but no email" do
