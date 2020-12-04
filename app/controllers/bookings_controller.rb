@@ -6,42 +6,37 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
-    @booking = Booking.new
-    @booking.showing_id = params[:showing]
-    @occupied = []
-    @bookings =  Booking.where(showing: params[:showing])
+    if params[:showing].present? && Showing.exists?(params[:showing])
+      @booking = Booking.new
+      @booking.showing_id = params[:showing]
+      @occupied = []
+      @bookings =  Booking.where(showing: params[:showing])
 
-    @bookings.each do |booking|
-      subarray = [booking.seat,booking.row]
-      @occupied.push(subarray)
-    end
-
-    unique_ticket = false
-    new_E_ticket = ''
-    while !unique_ticket do
-      new_E_ticket = (('A'..'Z').to_a.shuffle[0,8].join).upcase()
-      unique_ticket = true
       @bookings.each do |booking|
-      if (booking.E_ticket == new_E_ticket)
+        subarray = [booking.seat,booking.row]
+        @occupied.push(subarray)
+      end
+
+      unique_ticket = false
+      new_E_ticket = ''
+      while !unique_ticket do
+        new_E_ticket = (('A'..'Z').to_a.shuffle[0,8].join).upcase()
         unique_ticket = true
+        @bookings.each do |booking|
+        if (booking.E_ticket == new_E_ticket)
+          unique_ticket = true
+          end
         end
       end
-    end
 
-  @booking.E_ticket = new_E_ticket;
+    @booking.E_ticket = new_E_ticket;
+    else
+      redirect_to root_url
+      flash[:alert] = t("bookings.new.invalid")
+    end
+  
   end
 
-  # GET /bookings/1/edit
-  def edit
-    @occupied = []
-    showing = Booking.where(id: params[:id])
-    @bookings =  Booking.where(showing: showing)
-
-    @bookings.each do |booking|
-      subarray = [booking.seat,booking.row]
-      @occupied.push(subarray)
-    end
-  end
 
   # POST /bookings
   # POST /bookings.json
@@ -61,6 +56,8 @@ class BookingsController < ApplicationController
 
   def parseAjax
     seatsHash = params[:seatPosArray]
+    puts seatsHash
+    puts params[:booking].inspect
     booking_hash = params[:booking].values
     new_booking = {}
     new_booking["name"] = booking_hash[2].values[1]

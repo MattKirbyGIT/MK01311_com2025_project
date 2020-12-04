@@ -24,4 +24,11 @@ class ShowingsControllerTest < ActionDispatch::IntegrationTest
     assert_nil flash[:notice]
   end
 
+  test "Can't show showings for unknown film" do
+    get showings_url, params: {film: 999}
+    assert_response :redirect
+    assert_not_empty flash[:alert]
+    assert_nil flash[:notice]
+  end
+
 end

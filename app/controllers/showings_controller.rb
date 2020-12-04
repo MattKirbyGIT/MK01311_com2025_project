@@ -18,11 +18,11 @@ class ShowingsController < ApplicationController
         end   
       else
         redirect_to films_url
-        flash[:alert] = "Error selecting showing. Can't find selected Film!"
+        flash[:alert] = t("showings.index.no_param")
       end 
     else
       redirect_to root_url
-      flash[:alert] = "Error selecting showing. No film selected!"
+      flash[:alert] = t("showings.index.bad_film")
     end 
   end 
 end

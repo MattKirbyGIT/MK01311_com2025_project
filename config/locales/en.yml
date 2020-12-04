@@ -90,6 +90,8 @@ en:
       description: "Select your desired CineView venue and showing time for your selected film."
       select: "Selected film: "
       times: "Select an available showing time"
+      no_param: "Error selecting showing. Can't find selected Film!"
+      bad_film: "Error selecting showing. No film selected!"
 
   venues:
     index:
@@ -100,6 +102,7 @@ en:
     new:
       title: "Book tickets"
       description: "Fill in your personal details below."
+      invalid: "Can't book for invalid showing!"
 
     form:
       film: "Selected film"

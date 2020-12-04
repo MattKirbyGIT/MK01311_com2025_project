@@ -21,15 +21,11 @@ class MyBookingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get find' do
-
-
     get '/mybookings/find', params: { E_ticket: "MyString"}
     puts request.GET.inspect
     assert_response :success
     assert_select 'h1','My bookings'
     assert_select 'li', "MyString 2"
-    
-
   end
 
 
