@@ -16,10 +16,10 @@
           <div id="grid-expand-<%= @uniqueVenues[venue].id %>" class="grid-expand">
             <div class="expand-overlay" id="expand-overlay-<%= @uniqueVenues[venue].id %>" onclick="toggleExpand(true,this.id)"></div>
               <div class="expand-content-venue p-4">
-                <div class="mt-3 mr-4">
-                  <img class="expand-img glow-shadow m-3" src="<%= @uniqueVenues[venue].image_url %>" />
-                </div>
-                <div class="expand-text mt-3 ">
+                
+                <img class="expand-img glow-shadow m-3" src="<%= @uniqueVenues[venue].image_url %>" />
+               
+                <div class="expand-main mt-3 ">
                   <h1 class='film-title display-4'><%= @uniqueVenues[venue].name %></h1>
                   <ul class="meta-list px-3">
                     <li class="text-muted"><%= t('showings.index.location') %></li>
@@ -31,16 +31,28 @@
                     <li class="text-muted"><%= t('showings.index.select') %></li>
                     <li class=""><%= @film.title %></li>
                     <hr class="no-pointer">
-                    <li class="text-muted"><%= t('showings.index.times') %></li>
+                    <li class="text-muted mb-2" ><%= t('showings.index.times') %></li>
+                    <div class = "showings-buttons-wrapper">
+                      <% @venueShowings[venue].each do |showing| %>
+                      <div class = "showing-actions">
+                        <%= button_to showing.time.strftime('%H:%M'),  new_booking_path, method: :get, params: { showing: showing }, class: "btn btn-outline-warning btn-lg", id: "badge-#{showing.id}"%>
+                        <button id="badge-<%=showing.id%>"class="badge" onclick="popoutToggle(this.id,true)">view available seats</button>
+                          <div id="popout-<%=showing.id%>" class = "popout-overlay">
+                            <div class="seat-popout">
+                              <%= render 'shared/seat_grid', booking: @booking, showing: showing %>
+                              <button id="popout-close-<%= showing.id %>"class="popout-close btn btn-sm btn-outline-secondary my-2" onclick="popoutToggle(this.id,false)"><%= t('films.film.close')%></button>   
+                            </div>  
+                            
+                          </div>
+                          
+                       
+                        </div>                        
+                      <% end %> 
+                    </div>
                   </ul>
-                  <div class="expand-close">
-                    <% @venueShowings[venue].each do |showing| %>
-                      <span class="badge badge-warning badge-pill glow-shadow m-2"><%= button_to showing.time.strftime('%H:%M'),new_booking_path, method: :get, params: { showing: showing }, class: "showing-time" %></span>
-                    <% end %> 
-                  </div>
+                </div>
                 <button id="grid-close-<%= @uniqueVenues[venue].id %>"class="expand-close btn btn-sm btn-outline-secondary my-2" onclick="toggleExpand(false,this.id)"><%= t('films.film.close')%></button>   
               </div>
-            </div>
           </div>             
         </div>           
     <% end %>   

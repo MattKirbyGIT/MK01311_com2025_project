@@ -1,0 +1,27 @@
+<% occupied = [] %>
+<% bookings =  Booking.where(showing: showing) %>
+<% bookings.each do |booking| %>
+    <% subarray = [booking.seat,booking.row] %>
+    <% occupied.push(subarray) %>
+<% end %>
+
+<div class="meta-list form-list">
+<p class=" mb-2" >Screen</p> 
+    <% (1..showing.venue.rows).each do |row|%>
+        <div class="flex-container px-3">
+              <% (1..showing.venue.seats_per_row).each do |seat|%>
+              <% free = true%>
+              <% occupied.each do |occupied|%>
+                <% if occupied[0] == seat && occupied[1] == row%>
+                  <% free = false%>
+                <% end %>
+              <% end %>
+                <% if free %>
+                  <div id = "seat<%= seat %>row<%= row %>"class="flex-item glow-shadow-2" onclick="seatSelect(<%= seat %>,<%= row %>)"></div>
+                <%else%>
+                  <div id = "seat<%= seat %>row<%= row %>"class="flex-item seat-occupied no-pointer glow-shadow-2" ></div>
+                <% end %>  
+              <% end %>
+            </div>
+        <% end %>
+    </div>
