@@ -23,6 +23,7 @@ grab_id_val = (id) =>{
 }
 
 toggleExpand = (show,id,expand_id) => { 
+   
     cell_id = grab_id_val(id);
     if(show){
         $("#" + expand_id + "-"+cell_id).fadeIn(200);

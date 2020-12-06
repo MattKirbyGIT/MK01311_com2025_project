@@ -76,6 +76,10 @@ en:
       book: "Book tickets for: "
       close: Close
 
+    show:
+      title: "More info"
+      description: "Learn more about your selected film."
+
     film:
       rd: "Release Date: "
       rating: "Rating: "

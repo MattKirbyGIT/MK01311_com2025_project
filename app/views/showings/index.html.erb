@@ -17,21 +17,26 @@
               <li class="text-muted"><%= t('showings.index.select') %></li>
               <li><%= @film.title %></li>
               <hr class="no-pointer">
-              <li class="text-muted mb-3" ><%= t('showings.index.times') %></li>
+              <li class="text-muted mb-2" ><%= t('showings.index.times') %></li>
                 <div class = "showings-buttons-wrapper">
-                <% puts "XXXXXXXXXXXXXX"%>
-                <% puts @venueShowings.length%>
                     <% @venueShowings.each do |showing| %>
                     <div class = "showing-actions">
-                      <%= button_to showing.time.strftime('%H:%M'),  new_booking_path, method: :get, params: { showing: showing }, class: "btn btn-outline-warning btn-lg", id: "badge-#{showing.id}"%>
-                      <button id="badge-<%=showing.id%>"class="badge" onclick="popoutToggle(this.id,true)">view available seats</button>
-                        <div id="popout-<%=showing.id%>" class = "popout-overlay">
-                          <div class="seat-popout">
+                      <button id="showing-<%= showing.id%>" class = "btn btn-warning badge-pill mx-2" onclick="toggleExpand(true,this.id,'showing-expand')"><%= showing.time.strftime('%H:%M') %></button>
+                      <div id="showing-expand-<%= showing.id %>" class="grid-expand">
+                        <div class="expand-overlay2" id="expand-overlay-<%= showing.id %>" onclick="toggleExpand(false,this.id,'showing-expand')"></div>
+                        <div class="expand-content2 p-2" style="max-width: 300px">
+                          <li class="text-muted">Seats available</li>
+                          <div class="seat-grid-mini my-3">
                             <%= render 'shared/seat_grid', booking: @booking, showing: showing %>
-                            <button id="popout-close-<%= showing.id %>"class="popout-close btn btn-sm btn-outline-secondary my-2" onclick="popoutToggle(this.id,false)"><%= t('films.film.close')%></button>   
-                          </div>  
-                          
-                        </div>
+                          </div> 
+                     
+                          <%= button_to "Select",  new_booking_path, method: :get, params: { showing: showing }, class: "btn btn-block btn-outline-warning", id: "badge-#{showing.id}"%>
+               
+                          <button id="showing-cell-close-<%= showing.id %>"class="expand-close btn btn-sm btn-outline-secondary my-2" onclick="toggleExpand(false,this.id,'showing-expand')"><%= t('films.film.close')%></button> 
+                        </div>      
+                      </div>        
+                      
+                      
                         
                       
                       </div>                        
@@ -40,4 +45,10 @@
                   </ul>
 		
 
-</div>     
+</div>  
+
+
+
+                        
+
+                      

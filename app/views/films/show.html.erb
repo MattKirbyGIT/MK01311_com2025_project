@@ -1,4 +1,8 @@
 <div class="wrapper-inner p-4">
+	<div class="heading mx-2 mb-4">
+    <h1 class="title display-4"><%= t('films.show.title') %></h1>
+    <p class="description lead"><%= t('films.show.description') %></p>
+  </div> 
   <div class="film-show row py-4 my-4">
 	<div class="col-sm-auto film-meta">
 		<img class="expand-img glow-shadow m-3" src="<%= @film.image_url %>" />

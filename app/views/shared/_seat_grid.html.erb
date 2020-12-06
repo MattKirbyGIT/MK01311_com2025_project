@@ -4,24 +4,48 @@
     <% subarray = [booking.seat,booking.row] %>
     <% occupied.push(subarray) %>
 <% end %>
+<%cap = showing.venue.seats_per_row * showing.venue.rows%>
 
-<div class="meta-list form-list">
-<p class=" mb-2" >Screen</p> 
-    <% (1..showing.venue.rows).each do |row|%>
-        <div class="flex-container px-3">
-              <% (1..showing.venue.seats_per_row).each do |seat|%>
-              <% free = true%>
-              <% occupied.each do |occupied|%>
-                <% if occupied[0] == seat && occupied[1] == row%>
-                  <% free = false%>
-                <% end %>
-              <% end %>
-                <% if free %>
-                  <div id = "seat<%= seat %>row<%= row %>"class="flex-item glow-shadow-2" onclick="seatSelect(<%= seat %>,<%= row %>)"></div>
-                <%else%>
-                  <div id = "seat<%= seat %>row<%= row %>"class="flex-item seat-occupied no-pointer glow-shadow-2" ></div>
-                <% end %>  
-              <% end %>
-            </div>
-        <% end %>
-    </div>
+
+<div class="seat-grid-label my-2">
+	<div>
+			<p class="m-0 badge badge-dark" >Available</p> 
+			<p class="m-0 badge badge-danger" >Occupied</p>
+	</div>
+	<p class=" text-muted mb-0" >Front Row</p> 
+</div>
+<% (1..showing.venue.rows).each do |row|%>
+	<div class="flex-container">
+		<% (1..showing.venue.seats_per_row).each do |seat|%>
+			<% free = true%>
+			<% occupied.each do |occupied|%>
+				<% if occupied[0] == seat && occupied[1] == row%>
+					<% free = false%>
+				<% end %>
+			<% end %>
+			<% if free %>
+				<div id = "seat<%= seat %>row<%= row %>"class="flex-item glow-shadow-2" onclick="seatSelect(<%= seat %>,<%= row %>)"></div>
+			<%else%>
+				<div id = "seat<%= seat %>row<%= row %>"class="flex-item seat-occupied no-pointer glow-shadow-2" ></div>
+			<% end %>  
+		<% end %>
+	</div>
+	<% end %>
+<div class="seat-grid-label my-2">
+	<div>
+		<p class="m-0 badge badge-dark" ><%= cap - occupied.length%> / <%= cap%></p> 
+	</div>
+	<p class="mb-0 text-muted" >Number of seats available:</p> 
+</div>
+      
+
+    
+
+   
+
+
+         
+       
+
+
+    
