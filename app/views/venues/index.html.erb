@@ -1,0 +1,18 @@
+<div class="wrapper-inner px-4">
+  <div class="heading mx-2 mb-4">
+    <h1 class="title display-4"><%= t('showings.index.title') %><%= @film.title %></h1>
+    <p class="description lead"><%= t('showings.index.description') %></p>
+  </div>
+  <div class='item-grid mx-2 py-4'>
+    <% @uniqueVenues.each do |venue|%>
+    <%= link_to showings_path params: {venue: venue, film: @film} do %>
+      <div class = "grid-cell" id="grid-item-<%= venue.id %>" onmouseenter="cellFade(true,this.id)" onmouseout="cellFade(false)" >
+        <div id="grid-thumb-<%= venue.id %>" onclick="toggleExpand(true,this.id,'showing-expand')">
+          <img class="grid-thumb no-pointer glow-shadow" src="<%= venue.image_url %>" />
+          <h1 class='lead no-pointer m-2'><%= venue.name %></h1>     
+        </div>
+    </div>
+    <% end %>            
+<% end %>   
+  </div>
+</div>

@@ -1,6 +1,21 @@
 // Place all the styles related to the Showings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.showing-show {
+  justify-content: center;
+  color: white;
+  max-width: 500px;
+  width: 95%;
+  margin: auto;
+  display: flex;
+}
+
+.showing-meta {
+  text-align: left;
+  padding: 0px;
+  width: 100%;
+}
+
 .showing-time {
   font-size: 3em;
   font-weight: 700;

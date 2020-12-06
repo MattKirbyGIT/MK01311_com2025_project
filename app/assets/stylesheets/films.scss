@@ -9,11 +9,6 @@
   }
 }
 
-.film-img {
-  width: 100%;
-  border-radius: 15px;
-}
-
 .film-show {
   justify-content: center;
   color: white;
@@ -28,6 +23,8 @@
   flex-direction: column;
   text-align: right;
   color: white;
+  margin: auto;
+  justify-content: center;
 }
 
 @media (max-width: 810px) {
@@ -88,9 +85,6 @@
   flex: 1;
   text-align: left;
   color: white;
-}
-
-.film-list {
 }
 
 .grid-expand {

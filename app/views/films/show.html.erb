@@ -18,7 +18,7 @@
 		<hr class="no-pointer">
 		<p class="expand-descr"><%= @film.description %></p>
 		<hr class="no-pointer">
-		<%= button_to t('films.index.book') + @film.title ,showings_path, method: :get, params: { film: @film}, class: "book btn btn-block btn-lg btn-outline-info mb-2",  id: "book-" + @film.id.to_s %>    
+		<%= button_to t('films.index.book') + @film.title ,venues_path, method: :get, params: { film: @film}, class: "book btn btn-block btn-lg btn-outline-info mb-2",  id: "book-" + @film.id.to_s %>    
 		<%= button_to t('films.film.back'), films_path, method: :get, class: "expand-close btn btn-sm btn-outline-secondary my-2" %>
 	</div>
 </div>

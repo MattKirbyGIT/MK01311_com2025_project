@@ -3,8 +3,20 @@ class VenuesController < ApplicationController
 
   # GET /venues
   # GET /venues.json
-  def index
-    @venues = Venue.all
+  def index 
+    if params[:film].present?
+      if Film.exists?(params[:film])
+        @film = Film.find(params[:film])
+        uniqueVenue_ids = Showing.where(film: params[:film]).pluck(:venue_id).uniq
+        @uniqueVenues = Venue.find(uniqueVenue_ids)  
+      else
+        redirect_to films_url
+        flash[:alert] = t("showings.index.no_param")
+      end 
+    else
+      redirect_to root_url
+      flash[:alert] = t("showings.index.bad_film")
+    end 
   end
 
   # GET /venues/1
