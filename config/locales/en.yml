@@ -32,7 +32,7 @@
 en:
   global:
     app_title: "CineView"
-    app_description: "An app to book cinema tickets and seats."
+    app_description: "An app to book tickets and seats at CineView cinemas."
 
   footer:
     credits: "A Ruby on Rails web app."
@@ -46,8 +46,8 @@ en:
 
   home:
     title: "Book your seat."
-    welcome_message: "Use this web app to book seats at your favourite cinemas."
-    call_to_action: "Book your tickets now."
+    welcome_message: "Use this web app to book seats at CineView cinemas."
+    call_to_action: "Book your tickets now"
 
     contact:
       title: "Contact Us"

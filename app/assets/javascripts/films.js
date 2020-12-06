@@ -3,16 +3,7 @@
 
 
 
-function toggleExpand(show,id){ 
-    if(show){
-        var cell_id = id.replace(/\D/g,'');
-        $("#grid-expand-"+cell_id).fadeIn(200);
-        dateCheck();
-     } else {
-        var cell_id = id.replace(/\D/g,'');
-        $("#grid-expand-"+cell_id).fadeOut(200);
-     }         
-}
+
 
 function cellFade(fade, ignored_cell){
     document.querySelectorAll(".grid-cell").forEach(cell =>{

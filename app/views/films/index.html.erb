@@ -5,28 +5,22 @@
   </div>   
   <div class='item-grid mx-2 py-4'>
     <% @films.each do |film| %>
-      <div class = "grid-cell" id="grid-item-<%= film.id %>" onmouseenter="cellFade(true,this.id)" onmouseout="cellFade(false)" >
-        <div id="grid-thumb-<%= film.id %>" onclick="toggleExpand(true,this.id)">
+      <div class = "grid-cell" id="film-cell-<%= film.id %>" onmouseenter="cellFade(true,this.id)" onmouseout="cellFade(false)">
+        <div id="grid-thumb-<%= film.id %>"  onclick="toggleExpand(true,this.id,'film-expand')">
           <img class="film-img no-pointer glow-shadow" src="<%= film.image_url %>" />
-          <div class ="film-content m-2 mt-3">
-            <h1 class='film-title lead no-pointer'><%= film.title %></h1>     
-          </div> 
+          <h1 class='film-title lead no-pointer m-2'><%= film.title %></h1>     
         </div>
-        <div id="grid-expand-<%= film.id %>" class="grid-expand">
-          <div class="expand-overlay" id="expand-overlay-<%= film.id %>" onclick="toggleExpand(true,this.id)"></div>
-              <div class="expand-content p-4">
-              <div style="max-width:300px">
-                <li class="film-date" id="film-date-<%= film.id %>" style="display:none"><%= film.release_date %></li>
-                <img class="expand-img glow-shadow m-3" src="<%= film.image_url %>" />
-                  <h1 class='film-title display-4 mt-3'><%= film.title %></h1>
-                  <hr class="no-pointer">
-                  <%= button_to t('films.index.book') + film.title ,showings_path, method: :get, params: { film: film}, class: "book btn btn-block btn-lg btn-outline-info mb-3",  id: "book-" + film.id.to_s %>
-                  <%= button_to t('films.index.more') ,film, method: :get, class: "book btn btn-block btn-lg btn-outline-secondary my-2",  id: "book-" + film.id.to_s %>    
-                <div class="expand-close">
-                <button id="grid-close-<%= film.id %>"class="expand-close btn btn-sm btn-outline-secondary my-2" onclick="toggleExpand(false,this.id)"><%= t('films.film.close')%></button> 
-              </div>
-            </div>
-          </div>
+        <div id="film-expand-<%= film.id %>" class="grid-expand">
+          <div class="expand-overlay2" id="expand-overlay-<%= film.id %>" onclick="toggleExpand(false,this.id,'film-expand')"></div>
+          <div class="expand-content2">
+            <span class="film-date" id="film-date-<%= film.id %>" style="display:none"><%= film.release_date %></span>
+            <img class="expand-img glow-shadow m-3" src="<%= film.image_url %>" />
+            <h1 class='film-title display-4 mt-3'><%= film.title %></h1>
+            <hr class="no-pointer">
+            <%= button_to t('films.index.book') + film.title ,showings_path, method: :get, params: { film: film}, class: "book btn btn-block btn-lg btn-outline-info mb-3",  id: "book-" + film.id.to_s %>
+            <%= button_to t('films.index.more') ,film, method: :get, class: "book btn btn-block btn-lg btn-outline-secondary my-2",  id: "book-" + film.id.to_s %>
+            <button id="film-cell-close-<%= film.id %>"class="expand-close btn btn-sm btn-outline-secondary my-2" onclick="toggleExpand(false,this.id,'film-expand')"><%= t('films.film.close')%></button> 
+          </div>      
         </div>             
       </div>   
     <% end %>

@@ -1,10 +1,8 @@
-<div class="wrapper">
-    <div class="test jumbo jumbotron col-lg-6 col-md-10 col-sm-12 col-xs-12  offset-md-1 offset-lg-3 float-md-center my-4">
-        <div class="container">
-            <h1 class="display-4 no-pointer"><%= t('home.title') %></h1>
-            <p class="lead no-pointer"><%= t('home.welcome_message') %></p>
-            <hr class="my-4 no-pointer">
-            <%= link_to t('home.call_to_action'), films_path, class: 'btn btn-lg btn-outline-info mx-2 my-2 my-lg-0' %>
-        </div>
+<div class="jumbotron col-lg-6 col-md-10 col-sm-12 col-xs-12 offset-md-1 offset-lg-3 float-md-center my-4">
+    <div class="container">
+        <h1 class="display-4 no-pointer"><%= t('home.title') %></h1>
+        <p class="lead no-pointer"><%= t('home.welcome_message') %></p>
+        <hr class="my-4 no-pointer">
+        <%= link_to t('home.call_to_action'), films_path, class: 'btn btn-lg btn-outline-info mx-2 my-2 my-lg-0' %>
     </div>
 </div>

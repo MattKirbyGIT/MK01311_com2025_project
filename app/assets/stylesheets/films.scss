@@ -14,6 +14,39 @@
   border-radius: 15px;
 }
 
+.film-show {
+  justify-content: center;
+  color: white;
+  max-width: 800px;
+  width: 95%;
+  margin: auto;
+  display: flex;
+}
+
+.film-meta {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  color: white;
+}
+
+@media (max-width: 810px) {
+  .film-meta {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .meta-list {
+    justify-content: center;
+  }
+}
+
+.film-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 .expand-overlay {
   background-color: black;
   opacity: 0.9;
@@ -30,6 +63,7 @@
 
 .expand-content {
   display: flex;
+
   position: absolute;
   max-width: 800px;
   justify-content: center;
@@ -57,8 +91,6 @@
 }
 
 .film-list {
-  text-align: right;
-  color: white;
 }
 
 .grid-expand {

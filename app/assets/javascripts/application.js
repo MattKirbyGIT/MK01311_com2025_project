@@ -16,3 +16,18 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+grab_id_val = (id) =>{
+    return id.replace(/\D/g,'');
+}
+
+toggleExpand = (show,id,expand_id) => { 
+    cell_id = grab_id_val(id);
+    if(show){
+        $("#" + expand_id + "-"+cell_id).fadeIn(200);
+        dateCheck();
+     } else {
+        $("#" + expand_id + "-"+cell_id).fadeOut(200);
+     }         
+}

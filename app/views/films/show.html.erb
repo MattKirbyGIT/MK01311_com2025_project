@@ -1,29 +1,26 @@
-
-<div class="expand-overlay" id="expand-overlay-<%= @film.id %>" onclick="toggleExpand(true,this.id)"></div>
-    <div class="expand-content p-4">
-    <div class="mt-3 mr-4">
-        <img class="expand-img glow-shadow m-3" src="<%= @film.image_url %>" />
-        <ul class="meta-list film-list px-3 mr-2">
-        <li class="text-muted"><%= t('films.film.rd') %></li>
-        <li class="film-date" id="film-date-<%= @film.id %>"><%= @film.release_date %></li>
-        <li class="text-muted"><%= t('films.film.rating') %> </li>
-        <li class=""><%= @film.rating %></li>
-        <li class="text-muted"><%= t('films.film.rtm') %></li>
-        <li class=""><%= @film.running_time_mins %></li>
-        <li class="text-muted"><%= t('films.film.ma') %></li>
-        <li class=""><%= @film.minimum_age_restriction %></li>
-        </ul>
-    </div>
-    <div class="expand-text mt-3 ">
-        <h1 class='film-title display-4'><%= @film.title %></h1>
-        <hr class="no-pointer">
-        <p class="expand-descr"><%= @film.description %></p>
-        <hr class="no-pointer">
-        <%= button_to t('films.index.book') + @film.title ,showings_path, method: :get, params: { film: @film}, class: "book btn btn-block btn-lg btn-outline-info mb-2",  id: "book-" + @film.id.to_s %>    
-    <div class="expand-close">
-    <%= button_to t('films.film.back'), films_path, method: :get, class: "expand-close btn btn-sm btn-outline-secondary my-2" %>
-    </div>
-</div>
+<div class="wrapper-inner p-4">
+  <div class="film-show row py-4 my-4">
+	<div class="col-sm-auto film-meta">
+		<img class="expand-img glow-shadow m-3" src="<%= @film.image_url %>" />
+		<ul class="meta-list film-list px-3 mr-2">
+			<li class="text-muted"><%= t('films.film.rd') %></li>
+			<li class="film-date" id="film-date-<%= @film.id %>"><%= @film.release_date %></li>
+			<li class="text-muted"><%= t('films.film.rating') %> </li>
+			<li class=""><%= @film.rating %></li>
+			<li class="text-muted"><%= t('films.film.rtm') %></li>
+			<li class=""><%= @film.running_time_mins %></li>
+			<li class="text-muted"><%= t('films.film.ma') %></li>
+			<li class=""><%= @film.minimum_age_restriction %></li>	
+		</ul>
+	</div>
+	<div class="col-sm-8 film-content">
+	<h1 class='film-title display-4'><%= @film.title %></h1>
+		<hr class="no-pointer">
+		<p class="expand-descr"><%= @film.description %></p>
+		<hr class="no-pointer">
+		<%= button_to t('films.index.book') + @film.title ,showings_path, method: :get, params: { film: @film}, class: "book btn btn-block btn-lg btn-outline-info mb-2",  id: "book-" + @film.id.to_s %>    
+		<%= button_to t('films.film.back'), films_path, method: :get, class: "expand-close btn btn-sm btn-outline-secondary my-2" %>
+	</div>
 </div>
 <script>dateCheck()</script>
-       
+	   
