@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <ul class="meta-list px-3 form-list">
+  <ul class="meta-list p-0">
     <li>
       <label class="form-input text-muted">
         <%= t('bookings.form.name') %>
@@ -33,7 +33,7 @@
         <%= t('bookings.form.seats') %>
         <div class="seat-amount-wrapper">
           <select id="seats-amount" class="seats-amount text-input p-1 m-2" ></select>
-          <button type="button" class="btn btn-sm btn-outline-warning my-2" onclick="toggleSeatSelector(true)"><%= t('bookings.form.select')%></button> 
+          <button id="toggle-seats-<%=@booking.showing.id%>" type="button" class="btn btn-sm btn-outline-warning my-2" onclick="toggleExpand(true,this.id,'selector-expand')"><%= t('bookings.form.select')%></button> 
         </div>
         <p id="seat-error" class="text-warning m-0"></p>
       </label>
@@ -55,12 +55,35 @@
     <%= form.hidden_field :seat%>
     <%= form.hidden_field :row%>
     <%= form.hidden_field :E_ticket%>
+
+    <div>
+    
+    
+    </div>
+
+  <div id="selector-expand-<%= @booking.showing.id %>" class="grid-expand">
+          <div class="expand-overlay2" id="expand-overlay-<%= @booking.showing.id %>" onclick="toggleExpand(false,this.id,'selector-expand')"></div>
+          <div class="expand-content2">
+          <ul class="meta-list p-0">
+        <li class="text-muted"><%= t('bookings.form.cinemaOverview') %></li>
+        <li class=""><%= t('bookings.form.position') %></li>
+        <hr class="no-pointer">
+        <li class="text-muted"><%= t('bookings.form.seats_remaining') %></li>
+        <li class="" id="seat-counter">1</li>
+        <hr class="no-pointer">
+      </ul> 
+            <%= render 'shared/seat_grid', booking: @booking, showing: @booking.showing %>
+            <button id="film-cell-close-<%= @booking.showing.id %>"class="expand-close btn btn-sm btn-outline-secondary my-2" onclick="toggleExpand(false,this.id,'selector-expand')"><%= t('films.film.close')%></button> 
+          </div>
+           </div>
+
+
+  <button id="bookingSubmit" class="btn btn-outline-info my-2 glow-shadow" type="submit">Submit</button>  
+<% end %>
  
   </ul>
 
-<%= render 'seat_selector', booking: @booking %> 
-  <button id="bookingSubmit" class="btn btn-outline-info m-3" type="submit">Submit</button>  
-<% end %>
+
 
 <script>handleOptions()</script>
 <script>bookingFormSubmit()</script>

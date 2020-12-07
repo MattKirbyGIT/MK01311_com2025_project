@@ -1,27 +1,29 @@
+
+
+
 <div class="wrapper-inner px-4">
-    <div class="heading mx-2 mb-4">
-        <h1 class="title display-4"><%= t('bookings.new.title') %></h1>
-        <p class="description lead"><%= t('bookings.new.description') %></p>
-    </div>   
-    <div class="booking-form p-4">
-        <div class="expand-meta mt-3 mr-4">
-            <img class="expand-img glow-shadow m-3" src="<%= @booking.showing.film.image_url %>" />
-            <ul class="meta-list film-list px-3">
-                <li class="text-muted"><%= t('bookings.form.film') %></li>
-                <li class=""><%= @booking.showing.film.title %></li>        
-                <li class="text-muted"><%= t('bookings.form.venue') %></li>
-                <li class=""><%= @booking.showing.venue.name %></li>           
-                <li class="text-muted"><%= t('bookings.form.time') %></li>
-                <li class=""><%= @booking.showing.time.strftime('%H:%M') %></li>
-                <li class="text-muted"><%= t('bookings.form.price') %></li>
-                <li class=""><%= number_to_currency(@booking.showing.price) %></li>      
-            </ul>
-        </div>
-    <div class="expand-text mt-3 ">
-        <%= render 'form', booking: @booking %> 
-        <div class="expand-close">         
-        </div>
-    </div>
+	<div class="heading mx-2 mb-4">
+    <h1 class="title display-4"><%= t('bookings.new.title') %></h1>
+    <p class="description lead"><%= t('bookings.new.description') %></p>
+  </div> 
+  <div class="booking-form row py-4 my-4">
+	<div class="col-sm-auto film-meta mt-0">
+		<img class="expand-img glow-shadow mx-3 mb-3" src="<%= @booking.showing.film.image_url %>" />
+		<ul class="meta-list booking-list px-3 mr-2">
+			<li class="text-muted"><%= t('bookings.form.film') %></li>
+				<li class=""><%= @booking.showing.film.title %></li>        
+				<li class="text-muted"><%= t('bookings.form.venue') %></li>
+				<li class=""><%= @booking.showing.venue.name %></li>           
+				<li class="text-muted"><%= t('bookings.form.time') %></li>
+				<li class=""><%= @booking.showing.time.strftime('%H:%M') %></li>
+				<li class="text-muted"><%= t('bookings.form.price') %></li>
+				<li class=""><%= number_to_currency(@booking.showing.price) %></li>  
+			</ul>
+	</div>
+	<div class="col-sm-8 film-content">
+	   <%= render 'form', booking: @booking %>
+		<%= button_to t('films.film.back'), films_path, method: :get, class: "expand-close btn btn-sm btn-outline-secondary my-2" %>
+	</div>
 </div>
 
 

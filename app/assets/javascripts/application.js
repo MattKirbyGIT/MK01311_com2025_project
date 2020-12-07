@@ -23,12 +23,13 @@ grab_id_val = (id) =>{
 }
 
 toggleExpand = (show,id,expand_id) => { 
-   
+   console.log(id)
     cell_id = grab_id_val(id);
     if(show){
         $("#" + expand_id + "-"+cell_id).fadeIn(200);
         dateCheck();
      } else {
         $("#" + expand_id + "-"+cell_id).fadeOut(200);
-     }         
+     }
+     return false;         
 }

@@ -11,3 +11,15 @@ popoutToggle = (id,popout) =>{
         $("#popout-" + cell_id).fadeOut(200);
     }
 }
+
+overviewToggle = (id) =>{ 
+    cell_id = grab_id_val(id);
+    var panel = document.getElementById("seat-grid-mini-" + cell_id)
+   
+    if(panel.style.maxHeight === "0px"){
+        console.log("test")
+        panel.style.maxHeight = "500px"
+    } else {
+        panel.style.maxHeight = "0px"
+    }
+}

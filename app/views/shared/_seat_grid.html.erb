@@ -6,13 +6,12 @@
 <% end %>
 <%cap = showing.venue.seats_per_row * showing.venue.rows%>
 
-
 <div class="seat-grid-label my-2">
 	<div>
-			<p class="m-0 badge badge-dark" >Available</p> 
-			<p class="m-0 badge badge-danger" >Occupied</p>
+		<p class="m-0 badge badge-dark" >Available</p> 
+		<p class="m-0 badge badge-danger" >Occupied</p>
 	</div>
-	<p class=" text-muted mb-0" >Front Row</p> 
+	<p class="mb-0" >Front Row (Screen)</p> 
 </div>
 <% (1..showing.venue.rows).each do |row|%>
 	<div class="flex-container">
@@ -31,12 +30,14 @@
 		<% end %>
 	</div>
 	<% end %>
+	<hr class="no-pointer">
 <div class="seat-grid-label my-2">
 	<div>
 		<p class="m-0 badge badge-dark" ><%= cap - occupied.length%> / <%= cap%></p> 
 	</div>
-	<p class="mb-0 text-muted" >Number of seats available:</p> 
+	<p class="mb-0" >Number of seats available:</p> 
 </div>
+<hr class="no-pointer">
       
 
     
