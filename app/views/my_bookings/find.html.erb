@@ -20,16 +20,16 @@
         </ul>
       </div>
     
-      <p class="title display-4 find-title"><%= t('my_bookings.find.price') %></p>
+      <p class="title display-4 find-title"><%= t('my_bookings.find.total_price') %></p>
       <p class="title display-4 find-price"><%= number_to_currency(@bookings.first.showing.price * @bookings.length) %></p>   
       <p class="title display-4 find-title"><%= t('my_bookings.find.seats') %></p>
       <table class="find-table">
             <thead class="border-bottom py-2 ">
                 <tr class="find-table-row find-table-heading">
-                    <th scope="col">Seat</th>
-                    <th scope="col">Row</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Remove seat</th>
+                    <th scope="col"><%= t('my_bookings.find.seat') %></th>
+                    <th scope="col"><%= t('my_bookings.find.row') %></th>
+                    <th scope="col"><%= t('my_bookings.find.price') %></th>
+                    <th scope="col"><%= t('my_bookings.find.remove') %></th>
                 </tr>
             </thead>
             <tbody class="find-table-body">
@@ -38,7 +38,7 @@
                     <td><%= venue.seat %></td>
                     <td><%= venue.row %></td>
                     <td><%= number_to_currency(venue.showing.price) %></td>
-                    <td><%= button_to t('my_bookings.find.cancel'), venue, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-block" %></td>
+                    <td><%= button_to t('global.cancel'), venue, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-block" %></td>
                 </tr>
                 <% end %>
             </tbody>

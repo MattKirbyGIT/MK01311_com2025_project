@@ -18,8 +18,8 @@
             <h1 class='film-title display-4 mt-3'><%= film.title %></h1>
             <hr class="no-pointer">
             <%= button_to t('films.index.book') + film.title ,venues_path, method: :get, params: { film: film}, class: "book btn btn-block btn-lg btn-outline-info mb-3",  id: "book-" + film.id.to_s %>
-            <%= button_to t('films.index.more') ,film, method: :get, class: "book btn btn-block btn-lg btn-outline-secondary my-2",  id: "book-" + film.id.to_s %>
-            <button id="film-cell-close-<%= film.id %>"class="expand-close btn btn-sm btn-outline-secondary my-2" onclick="toggleExpand(false,this.id,'film-expand')"><%= t('films.film.close')%></button> 
+            <%= button_to t('global.more') ,film, method: :get, class: "book btn btn-block btn-lg btn-outline-secondary my-2",  id: "book-" + film.id.to_s %>
+            <button id="film-cell-close-<%= film.id %>"class="expand-close btn btn-sm btn-outline-secondary my-2" onclick="toggleExpand(false,this.id,'film-expand')"><%= t('global.close')%></button> 
           </div>      
         </div>             
       </div>   

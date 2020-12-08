@@ -33,6 +33,10 @@ en:
   global:
     app_title: "CineView"
     app_description: "An app to book tickets and seats at CineView cinemas."
+    back: "Go back"
+    close: "Close"
+    cancel: "Cancel"
+    more: "More info"
 
   footer:
     credits: "A Ruby on Rails web app."
@@ -74,7 +78,6 @@ en:
       description: "Browse the latest films showing today in our CineView cinemas."
       more: "More info"
       book: "Book tickets for: "
-      close: Close
 
     show:
       title: "More info"
@@ -90,15 +93,17 @@ en:
 
   showings:
     index:
-      title: "Watch: "
-      description: "Select your desired CineView venue and showing time for your selected film."
       select: "Selected film: "
       times: "Select an available showing time"
+      showing: "Showing: "
+      select: "Select this showing"
       no_param: "Error selecting showing. Can't find selected Film!"
       bad_film: "Error selecting showing. No film selected!"
 
   venues:
     index:
+      title: "Watch: "
+      description: "Select your desired CineView venue and showing time for your selected film."
       cap: "Maximum venue capacity "
       cap2: " Seats"
 
@@ -139,6 +144,8 @@ en:
       description: "View your recent bookings here."
       seats: "Your seats"
       show: "Info"
-      cancel: "Cancel"
-      price: "Total price"
-      seatsAmount: "Number of seats"
+      total_price: "Total price"
+      seat: "Seat"
+      row: "Row"
+      price: "Price"
+      remove: "Remove seat"

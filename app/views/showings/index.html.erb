@@ -22,7 +22,7 @@
             <div class="expand-overlay2" id="expand-overlay-<%= showing.id %>" onclick="toggleExpand(false,this.id,'showing-expand')"></div>
             <div class="expand-content2 p-2" style="max-width: 300px; text-align: left">
               <div class="showing-popout-header">
-                <p class='mb-0'>Showing:</p> 
+                <p class='mb-0'><%= t('showings.index.showing') %></p> 
                 <span class="btn btn-warning badge-pill mx-2 no-pointer"><%= showing.time.strftime('%H:%M') %><span>
               </div>
               <hr class="no-pointer">
@@ -34,14 +34,14 @@
               <div id="seat-grid-mini-<%= showing.id%>" class="seat-grid-mini my-2" style="max-height: 0px">
                 <%= render 'shared/seat_grid', booking: @booking, showing: showing %>
               </div> 
-              <%= button_to "Select",  new_booking_path, method: :get, params: { showing: showing }, class: "btn btn-block btn-outline-warning glow-shadow", id: "badge-#{showing.id}"%>
+              <%= button_to t('showings.index.select'),  new_booking_path, method: :get, params: { showing: showing }, class: "btn btn-block btn-outline-warning glow-shadow", id: "badge-#{showing.id}"%>
               <button id="showing-cell-close-<%= showing.id %>"class="expand-close btn btn-sm btn-outline-secondary my-2" onclick="toggleExpand(false,this.id,'showing-expand')"><%= t('films.film.close')%></button> 
             </div>      
           </div>        
         </div>                        
       <% end %> 
     </div>
-    <%= button_to "Select a different venue",  venues_path, method: :get, params: { film: @film }, class: "mt-2 expand-close btn btn-sm btn-outline-secondary"%>
+    <%= button_to t('global.back'),  venues_path, method: :get, params: { film: @film }, class: "mt-2 expand-close btn btn-sm btn-outline-secondary"%>
   </ul>
 </div>  
 
