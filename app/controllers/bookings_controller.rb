@@ -55,25 +55,25 @@ class BookingsController < ApplicationController
   end
 
   def parseAjax
-    seatsHash = params[:seatPosArray]
-    puts seatsHash
-    puts params[:booking].inspect
-    booking_hash = params[:booking].values
-    new_booking = {}
-    new_booking["name"] = booking_hash[2].values[1]
-    new_booking["email"] = booking_hash[3].values[1]
-    new_booking["showing_id"] = booking_hash[4].values[1].to_i
-    new_booking["E_ticket"] = booking_hash[7].values[1]      
-   
-    valid = true
-    seatsHash.each do |key, value|
-      new_booking["seat"] = value[0] 
-      new_booking["row"] = value[1]
-      @booking = Booking.create(new_booking)
+    if params[:seatPosArray].present? && Showing.exists?(params[:booking])
+      seatsHash = params[:seatPosArray]
+      booking_hash = params[:booking].values
+      new_booking = {}
+      new_booking["name"] = booking_hash[2].values[1]
+      new_booking["email"] = booking_hash[3].values[1]
+      new_booking["showing_id"] = booking_hash[4].values[1].to_i
+      new_booking["E_ticket"] = booking_hash[7].values[1]      
+      
+      valid = true
+      seatsHash.each do |key, value|
+        new_booking["seat"] = value[0] 
+        new_booking["row"] = value[1]
+        @booking = Booking.create(new_booking)
 
         if !@booking.save
-         valid = false
+          valid = false
         end
+      end
     end 
 
     respond_to do |format|

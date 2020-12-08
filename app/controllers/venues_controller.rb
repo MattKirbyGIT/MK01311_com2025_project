@@ -11,11 +11,11 @@ class VenuesController < ApplicationController
         @uniqueVenues = Venue.find(uniqueVenue_ids)  
       else
         redirect_to films_url
-        flash[:alert] = t("showings.index.no_param")
+        flash[:alert] = t("venues.index.no_param")
       end 
     else
       redirect_to root_url
-      flash[:alert] = t("showings.index.bad_film")
+      flash[:alert] = t("venues.index.bad_param")
     end 
   end
 

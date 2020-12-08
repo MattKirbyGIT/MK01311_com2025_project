@@ -97,8 +97,8 @@ en:
       times: "Select an available showing time"
       showing: "Showing: "
       select: "Select this showing"
-      no_param: "Error selecting showing. Can't find selected Film!"
-      bad_film: "Error selecting showing. No film selected!"
+      no_param: "Error selecting showing. Film or venue invalid!"
+      bad_param: "Error selecting showing. Film or venue missing!"
 
   venues:
     index:
@@ -106,6 +106,8 @@ en:
       description: "Select your desired CineView venue and showing time for your selected film."
       cap: "Maximum venue capacity "
       cap2: " Seats"
+      no_param: "Error selecting venue. Film or venue invalid!"
+      bad_param: "Error selecting venue. Film or venue missing!"
 
   bookings:
     new:

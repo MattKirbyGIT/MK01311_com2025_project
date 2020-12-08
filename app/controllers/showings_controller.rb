@@ -17,7 +17,7 @@ class ShowingsController < ApplicationController
       end 
     else
       redirect_to root_url
-      flash[:alert] = t("showings.index.bad_film")
+      flash[:alert] = t("showings.index.bad_param")
     end 
   end
   
