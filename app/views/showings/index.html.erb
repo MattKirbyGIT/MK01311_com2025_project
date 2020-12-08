@@ -41,6 +41,7 @@
         </div>                        
       <% end %> 
     </div>
+    <%= button_to "Select a different venue",  venues_path, method: :get, params: { film: @film }, class: "mt-2 expand-close btn btn-sm btn-outline-secondary"%>
   </ul>
 </div>  
 

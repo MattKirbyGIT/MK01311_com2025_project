@@ -6,7 +6,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     assert_select 'h1','Book your seat.'
-    assert_select 'p','Use this web app to book seats at your favourite cinemas.'
+    assert_select 'p','Use this web app to book seats at CineView cinemas.'
   end
 
   test "should get contact" do

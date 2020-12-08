@@ -6,17 +6,11 @@ class ShowingsController < ApplicationController
   # GET /showings
   # GET /showings.json
   def index 
-    if params[:film].present?
-      if Film.exists?(params[:film])
+    if params[:film].present? && params[:venue].present?
+      if Film.exists?(params[:film]) && Venue.exists?(params[:venue])
         @film = Film.find(params[:film])
         @venue = Venue.find(params[:venue])
-
-     
         @venueShowings = Showing.where(film: params[:film],venue_id: @venue.id)
-
-        puts "XXXXXXXXXXXX"
-        puts @venueShowings.length
-  
       else
         redirect_to films_url
         flash[:alert] = t("showings.index.no_param")
@@ -27,8 +21,7 @@ class ShowingsController < ApplicationController
     end 
   end
   
-  def show
-    
+  def show 
     @film = params[:film]
   end
 

@@ -70,8 +70,8 @@ en:
 
   films:
     index:
-      title: "What's on"
-      description: "Browse the latest films showing in our CineView cinemas."
+      title: "What's on?"
+      description: "Browse the latest films showing today in our CineView cinemas."
       more: "More info"
       book: "Book tickets for: "
       close: Close
