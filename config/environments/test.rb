@@ -1,4 +1,4 @@
-# Test environment is not verbose. Removes activemodel and active support depriciation warnings.
+# Test environment is not verbose. Removes activemodel and active support depreciation warnings.
 $VERBOSE=nil
 
 Rails.application.configure do
