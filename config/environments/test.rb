@@ -1,3 +1,6 @@
+# Test environment is not verbose. Removes activemodel and active support depriciation warnings.
+$VERBOSE=nil
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
