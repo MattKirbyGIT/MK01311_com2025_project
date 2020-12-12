@@ -3,74 +3,46 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "globalStyles";
 
-@media (min-width: 900px) {
-  .film-expand {
-    display: inline-flex;
-  }
-}
-
+//Style for film more info page. Centers text and max width of box.
 .film-show {
   justify-content: center;
-  color: white;
+  color: $heading-main;
   max-width: 800px;
   width: 95%;
   margin: auto;
   display: flex;
 }
 
+//List styles for meta content
 .film-meta {
   display: flex;
   flex-direction: column;
   text-align: right;
-  color: white;
+  color: $heading-main;
   margin: auto;
   justify-content: center;
- 
 }
 
+//Media query
+
 @media (max-width: 810px) {
+  //Changes horizontal alignmet direction when div width is less than 810px;
   .film-meta {
     flex-direction: row;
     text-align: left;
   }
 
+  //Changes  vertical alignment of list when div width is less than 810px;
   .meta-list {
     justify-content: center;
   }
 }
 
+//Main content of film (synopsis)
 .film-content {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-}
-
-.expand-overlay {
-  background-color: black;
-  opacity: 0.9;
-  z-index: 2;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  overflow-y: hidden;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: all;
-}
-
-.expand-content {
-  display: flex;
-
-  position: absolute;
-  max-width: 800px;
-  justify-content: center;
-  width: 90%;
-  border-radius: 15px;
-  z-index: 10;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .expand-meta {
@@ -80,12 +52,6 @@
 .expand-img {
   max-height: 250px;
   border-radius: 15px;
-}
-
-.expand-main {
-  flex: 1;
-  text-align: left;
-  color: white;
 }
 
 .grid-expand {

@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "globalStyles";
 
+//Modified bootstrap jumbotron class. Always in centre and not affected by other elements in the DOM.
 .jumbotron {
   color: $heading-main;
   background-color: $bg-primary !important;
@@ -10,6 +11,7 @@
   top: 30%;
 }
 
+//Defines style for a horizontal rule element.
 hr {
   border: 0;
   clear: both;
@@ -19,6 +21,7 @@ hr {
   height: 1px;
 }
 
+//Contact form is centered, has max-width and content in columns.
 .contact-form {
   margin: auto;
   color: $text-muted;
@@ -28,8 +31,9 @@ hr {
   flex-direction: column;
 }
 
+//Styles for contact text input fields.
 .contact-input {
-  color: white;
+  color: $heading-main;
   background: none;
   border-radius: 5px;
   border: none;
@@ -38,6 +42,7 @@ hr {
   font-size: large;
 }
 
+//Styles for contact text input lables.
 .contact-label {
   font-size: small;
   margin: 5px;

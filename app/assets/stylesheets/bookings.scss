@@ -19,6 +19,8 @@
   opacity: 1; /* Firefox */
 }
 
+//Sets styles for all text input fields.
+//Flex-grow: ensures that the field expoands to full wodth of containing div.
 .text-input {
   color: $heading-secondary;
   font-size: 1.5em;
@@ -37,6 +39,7 @@
   display: inline-flex;
 }
 
+//All items in the seat selection element are horizontally aligned to the left and right, as well as vertically centered.
 .seat-amount-wrapper {
   display: flex;
   justify-content: space-between;
@@ -44,10 +47,7 @@
   width: 100%;
 }
 
-.seat-selector {
-  display: none;
-}
-
+//All items part of a seat grid label are horizontally spaced to the left and right
 .seat-grid-label {
   display: flex;
   justify-content: space-between;
@@ -55,66 +55,55 @@
   font-size: small;
 }
 
-.selector-content {
-  height: 90vh;
-  position: absolute;
-  max-width: 700px;
-  width: 80%;
-  border-radius: 15px;
-  z-index: 2000;
-
-  overflow: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
+//Container for each sead grid row. Display flex to align each seat next to each other
 .flex-container {
   padding: 0;
   margin: 0;
   list-style: none;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
-  -webkit-flex-flow: row;
   justify-content: space-around;
-
   line-height: 30px;
 }
+
+//Ensures a seat item has a rounded square look, with a fixed margin to space out each seat.
+//Fade transition of 200ms for hover over.
 .flex-item {
-  background: black;
-  border-radius: 50%;
+  border-radius: 25%;
   margin: 2px;
-  color: white;
   font-size: 1.5em;
   text-align: center;
-  flex: 1 0 auto;
+  flex: 1 0 auto; //Width 100% for each seat
   height: auto;
 
   transition: all 200ms;
   background-color: rgb(24, 24, 24);
 }
+
+//Inserts an empty string to ensure seat item keeps width
 .flex-item:before {
   content: "";
-  float: left;
+  display: flex;
+  justify-content: center;
+  align-content: center;
   padding-top: 100%;
 }
 
+//Changes the hover color of a seat
 .flex-item:hover {
   border-color: $text-muted;
   background-color: $text-muted;
   transition: all 200ms;
 }
 
+//Sets color of occupied seat to red.
 .seat-occupied {
   border-color: $danger;
   background-color: $danger;
 }
 
+//Changes selected seat to blue
 .seat-select {
-  border-color: white;
+  border-color: $heading-main;
   background-color: $info;
 }
 
@@ -122,22 +111,14 @@
   white-space: nowrap;
 }
 
+
 .booking-form {
   justify-content: center;
-  color: white;
+  color: $heading-main;
   max-width: 800px;
   width: 95%;
   margin: auto;
   display: flex;
-}
-
-.selector-key {
-  border: 1px solid $text-muted;
-  border-radius: 50%;
-  font-size: medium;
-  display: flex;
-  justify-content: space-evenly;
-  align-content: center;
 }
 
 .booking-list {

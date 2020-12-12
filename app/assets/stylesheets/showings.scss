@@ -1,37 +1,33 @@
 // Place all the styles related to the Showings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//Showing content box, centered with an absolute max width. Text align center.
 .showing-show {
   justify-content: center;
-  color: white;
+  color: $heading-main;
   max-width: 500px;
   width: 95%;
   margin: auto;
   display: flex;
 }
 
+//Style for showing meta list. Left aligning all text.
 .showing-meta {
   text-align: left;
   padding: 0px;
   width: 100%;
 }
 
-.showing-time {
-  font-size: 3em;
-  font-weight: 700;
-  background: none;
-  border: none;
-}
-
+//Align each time buttin in a row
 .showings-buttons-wrapper {
   display: flex;
   flex-direction: row;
 }
 
-.showing-actions {
-  text-align: center;
-}
-
+//Tests max width for the mini seat overview in the showing popout.
+//Removes pointer events so a seat cannot be selected.
+//max-height 0, initially not visable. Transition 200ms to create a sliding open effect when the max height is changed.
 .seat-grid-mini {
   max-width: 300px;
   pointer-events: none;
@@ -41,21 +37,7 @@
   transition: all 200ms;
 }
 
-.popout-overlay {
-  background-color: black;
-
-  z-index: 2;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  overflow-y: hidden;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  display: none;
-}
-
+//Space inbetween for child elements (title and time)
 .showing-popout-header {
   display: flex;
   justify-content: space-between;

@@ -7,9 +7,9 @@
 @import "showings";
 @import "my_bookings";
 
+//Sets body height to viewport height.
 body {
   background-color: $bg-primary;
-
   height: 100vh;
   overflow: auto;
 }
@@ -40,6 +40,8 @@ nav,
   height: 100vh;
 }
 
+//style for setting the max-width fo page content.
+//ensures that page content is centered and not full width on larger displays.
 .wrapper-inner {
   max-width: 1366px;
   margin: 0 auto;
@@ -47,19 +49,23 @@ nav,
   min-height: 100%;
 }
 
+//Ensures a user cannot interact with an element with this style class.
 .no-pointer {
   pointer-events: none;
   user-select: none;
 }
 
+//glow shadow effect 1
 .glow-shadow {
   box-shadow: $card-shadow-1;
 }
 
+//glow shadow effect 2
 .glow-shadow-2 {
   box-shadow: $card-shadow-2;
 }
 
+//lays sub elements out in a grid formation with 2 columns by default.
 .item-grid {
   display: grid;
   grid-gap: 3rem;
@@ -67,6 +73,7 @@ nav,
   padding-bottom: 50px;
 }
 
+//centers content within a grid item. Opacity transition for fade effect 800ms
 .grid-cell {
   color: white;
   transition: opacity 800ms;
@@ -82,20 +89,23 @@ nav,
   border-radius: 15px;
 }
 
+//Media query to increase number of columns to 3 if the grid size is greater than 600px;
 @media (min-width: 600px) {
   .item-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
+//Media query to increase number of columns to 4 if the grid size is greater than 900px;
 @media (min-width: 900px) {
   .item-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
+//Generates a transparent overlay, with the dimensions of viewport to cover entire screen
 .expand-overlay2 {
-  background-color: black;
+  background-color: $bg-primary;
   opacity: 0.95;
   z-index: 2;
   width: 100vw;
@@ -107,6 +117,7 @@ nav,
   transform: translate(-50%, -50%);
 }
 
+//Styles a div in the overlay, aligned centre horizontally and vertically,
 .expand-content2 {
   position: fixed;
   max-width: 500px;
@@ -119,6 +130,7 @@ nav,
   transform: translate(-50%, -50%);
 }
 
+//Styles a list for all meta data lists
 .meta-list {
   display: flex;
   flex-direction: column;
@@ -129,6 +141,6 @@ nav,
 .notice {
   font-size: large;
   text-align: center;
-  color: white;
+  color: $heading-main;
   font-weight: 300;
 }

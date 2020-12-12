@@ -55,7 +55,7 @@ class BookingsController < ApplicationController
   end
 
   def parseAjax
-    if params[:seatPosArray].present? && Showing.exists?(params[:booking])
+    if params[:seatPosArray].present? && params[:booking].present?
       seatsHash = params[:seatPosArray]
       booking_hash = params[:booking].values
       new_booking = {}

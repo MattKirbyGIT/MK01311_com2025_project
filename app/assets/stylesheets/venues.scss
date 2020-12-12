@@ -7,6 +7,9 @@
   max-width: 300px;
 }
 
+//Custom expand class for venue grid. Showing venue info in expand container.
+//Aligning all content center, vertically and horizontally
+//Position absolute to remove container from the DOM
 .expand-content-venue {
   display: flex;
   flex-direction: column;
@@ -26,6 +29,7 @@
   font-size: 2em;
 }
 
+//Venue info list
 .venue-list {
   list-style-type: none;
   text-align: left;

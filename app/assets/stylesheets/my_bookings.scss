@@ -3,12 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "globalStyles";
 
+//Main content of the e-ticket found tickets results page
 .find-content {
   width: 95%;
   max-width: 600px;
   margin: auto;
 }
 
+//Styles the image on the E-ticket find page
 .find-img-meta {
   text-align: left;
   display: flex;
@@ -18,10 +20,11 @@
 
 .find-meta-list {
   font-size: small;
-  color: white;
+  color: $heading-main;
   list-style: none;
 }
 
+//Seats in a element with table style.
 .find-table {
   width: 100%;
   table-layout: fixed;
@@ -33,12 +36,12 @@
 }
 
 .find-table-row {
-  color: white;
+  color: $heading-main;
   height: 50px;
 }
 
 .find-table-body {
-  color: white;
+  color: $heading-main;
 }
 
 .find-title {
@@ -47,5 +50,5 @@
 }
 
 .find-price {
-  color: white;
+  color: $heading-main;
 }
