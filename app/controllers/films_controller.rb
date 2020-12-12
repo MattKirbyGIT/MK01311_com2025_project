@@ -7,6 +7,7 @@ class FilmsController < ApplicationController
     @films = Film.all
   end
 
+  # GET /film/?
   # Default show method
   def show
   end
