@@ -7,11 +7,13 @@ class FilmsController < ApplicationController
     @films = Film.all
   end
 
+  # Default show method
   def show
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    # Validation for film parameter. If invalid, redirect with alert to films index.
     def set_film
       if Film.exists?(id: params[:id])
         @film = Film.find(params[:id])
