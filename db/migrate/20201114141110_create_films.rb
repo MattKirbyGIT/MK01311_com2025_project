@@ -1,5 +1,6 @@
 class CreateFilms < ActiveRecord::Migration[5.2]
   def change
+    # Creates a film table, all fields not null.
     create_table :films do |t|
       t.string :title, null: false
       t.text :description, null: false
