@@ -1,30 +1,34 @@
+<%# Wrapper to ensure that the website isnt full viewport wodth on larger displays %>
 <div class="wrapper-inner px-4">
 	<div class="heading mx-2 mb-4">
     <h1 class="title display-4"><%= t('films.show.title') %></h1>
     <p class="description lead"><%= t('films.show.description') %></p>
   </div> 
+	<%# film info box. Displayes more info about the film %>
   <div class="film-show row py-4 my-4">
-	<div class="col-sm-auto film-meta">
-		<img class="expand-img glow-shadow m-3" src="<%= @film.image_url %>" />
-		<ul class="meta-list film-list px-3 mr-2">
-			<li class="text-muted"><%= t('films.film.rd') %></li>
-			<li class="film-date" id="film-date-<%= @film.id %>"><%= @film.release_date %></li>
-			<li class="text-muted"><%= t('films.film.rating') %> </li>
-			<li class=""><%= @film.rating %></li>
-			<li class="text-muted"><%= t('films.film.rtm') %></li>
-			<li class=""><%= @film.running_time_mins %></li>
-			<li class="text-muted"><%= t('films.film.ma') %></li>
-			<li class=""><%= @film.minimum_age_restriction %></li>	
-		</ul>
-	</div>
+		<%# Film metadata presented in list format %>
+		<div class="col-sm-auto film-meta">
+			<img class="expand-img glow-shadow m-3" src="<%= @film.image_url %>" />
+			<ul class="meta-list film-list px-3 mr-2">
+				<li class="text-muted"><%= t('films.film.rd') %></li>
+				<li class="film-date" id="film-date-<%= @film.id %>"><%= @film.release_date %></li>
+				<li class="text-muted"><%= t('films.film.rating') %> </li>
+				<li class=""><%= @film.rating %></li>
+				<li class="text-muted"><%= t('films.film.rtm') %></li>
+				<li class=""><%= @film.running_time_mins %></li>
+				<li class="text-muted"><%= t('films.film.ma') %></li>
+				<li class=""><%= @film.minimum_age_restriction %></li>	
+			</ul>
+		</div>
+		<%# Second column to dispay title and synopsis. Will collapse using bootstrap if viewport width small enough %>
 	<div class="col-sm-8 film-content">
-	<h1 class='film-title display-4'><%= @film.title %></h1>
-		<hr class="no-pointer">
-		<p class="expand-descr"><%= @film.description %></p>
-		<hr class="no-pointer">
-		<%= button_to t('films.index.book') + @film.title ,venues_path, method: :get, params: { film: @film}, class: "book btn btn-block btn-lg btn-outline-info mb-2",  id: "book-" + @film.id.to_s %>    
-		<%= button_to t('global.back'), films_path, method: :get, class: "expand-close btn btn-sm btn-outline-secondary my-2" %>
-	</div>
+		<h1 class='film-title display-4'><%= @film.title %></h1>
+			<hr class="no-pointer">
+			<p class="expand-descr"><%= @film.description %></p>
+			<hr class="no-pointer">
+			<%= button_to t('films.index.book') + @film.title ,venues_path, method: :get, params: { film: @film}, class: "book btn btn-block btn-lg btn-outline-info mb-2",  id: "book-" + @film.id.to_s %>    
+			<%= button_to t('global.back'), films_path, method: :get, class: "expand-close btn btn-sm btn-outline-secondary my-2" %>
+		</div>
 </div>
 <script>dateCheck()</script>
 	   

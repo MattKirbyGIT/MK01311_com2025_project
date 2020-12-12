@@ -1,11 +1,10 @@
-
-
-
+<%# Wrapper to ensure that the website isnt full viewport wodth on larger displays %>
 <div class="wrapper-inner px-4">
 	<div class="heading mx-2 mb-4">
     <h1 class="title display-4"><%= t('bookings.new.title') %></h1>
     <p class="description lead"><%= t('bookings.new.description') %></p>
-  </div> 
+  </div>
+	<%# Info amount booking in list format to complement form  %>
   <div class="booking-form row py-4 my-4">
 	<div class="col-sm-auto film-meta mt-0">
 		<img class="expand-img glow-shadow mx-3 mb-3" src="<%= @booking.showing.film.image_url %>" />
@@ -20,6 +19,7 @@
 				<li class=""><%= number_to_currency(@booking.showing.price) %></li>  
 			</ul>
 	</div>
+	<%# Column to contain form. Will re-align vertically if viewport is small enough. %>
 	<div class="col-sm-8 film-content">
 	   <%= render 'form', booking: @booking %>
 		<%= button_to t('films.film.back'), films_path, method: :get, class: "expand-close btn btn-sm btn-outline-secondary my-2" %>

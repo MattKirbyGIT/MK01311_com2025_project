@@ -1,17 +1,23 @@
+<%# Wrapper to ensure that the website isnt full viewport wodth on larger displays %>
 <div class="wrapper-inner px-4">
   <div class="heading mx-2 mb-4">
     <h1 class="title display-4"><%= t('films.index.title') %></h1>
     <p class="description lead"><%= t('films.index.description') %></p>
-  </div>   
+  </div>
+  <%# Grid to showcase each individual film in its own grid cell element    %>
   <div class='item-grid mx-2 py-4'>
+  <%# For each film, create a small clickable thumbnail with fade mouse events %>
     <% @films.each do |film| %>
       <div class = "grid-cell" id="film-cell-<%= film.id %>" onmouseenter="cellFade(true,this.id)" onmouseout="cellFade(false)">
+        <%# Film thumbnail %>
         <div id="grid-thumb-<%= film.id %>"  onclick="toggleExpand(true,this.id,'film-expand')">
           <img class="grid-thumb no-pointer glow-shadow" src="<%= film.image_url %>" />
           <h1 class='lead no-pointer m-2'><%= film.title %></h1>     
         </div>
+        <%# Content displayed if the thumbail is clicked. Shows a larger image of the film and film actions to book or view more info %>
         <div id="film-expand-<%= film.id %>" class="grid-expand">
           <div class="expand-overlay2" id="expand-overlay-<%= film.id %>" onclick="toggleExpand(false,this.id,'film-expand')"></div>
+          <%# Transparent overlay %>
           <div class="expand-content2">
             <span class="film-date" id="film-date-<%= film.id %>" style="display:none"><%= film.release_date %></span>
             <img class="expand-img glow-shadow m-3" src="<%= film.image_url %>" />
