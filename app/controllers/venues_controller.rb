@@ -3,17 +3,24 @@ class VenuesController < ApplicationController
 
   # GET /venues
   # GET /venues.json
+  # Method to get all unique venues for a particular selected film
+  # Param - film id
   def index 
+    # Validation to esnure id parameter is present 
     if params[:film].present?
+      # Validation to ensure that film id parameter is valid
       if Film.exists?(params[:film])
         @film = Film.find(params[:film])
+        # Get a list of all unique venues for a particular film id 
         uniqueVenue_ids = Showing.where(film: params[:film]).pluck(:venue_id).uniq
         @uniqueVenues = Venue.find(uniqueVenue_ids)  
       else
+        # If not valid redirect to film url with alert
         redirect_to films_url
         flash[:alert] = t("venues.index.no_param")
       end 
     else
+      #If not present then redirect to root url with notice
       redirect_to root_url
       flash[:alert] = t("venues.index.bad_param")
     end 
