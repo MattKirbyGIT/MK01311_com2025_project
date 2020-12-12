@@ -1,11 +1,17 @@
+<%# #Initialize occupied seat array %>
 <% occupied = [] %>
+<%# Get bookings for the showing input parameter %>
 <% bookings =  Booking.where(showing: showing) %>
+<%# For each booking, seat and row to the occupied array %>
 <% bookings.each do |booking| %>
     <% subarray = [booking.seat,booking.row] %>
     <% occupied.push(subarray) %>
 <% end %>
+<%# Calculate total capacity of the venue %>
 <%cap = showing.venue.seats_per_row * showing.venue.rows%>
 
+
+<%# Seat grid instruction labels %>
 <div class="seat-grid-label my-2">
 	<div>
 		<p class="m-0 badge badge-dark" >Available</p> 
@@ -13,6 +19,11 @@
 	</div>
 	<p class="mb-0" >Front Row (Screen)</p> 
 </div>
+
+
+<%# Iterate through each row and each seat within each row.
+If row and seat is in the occupied array, render a red, non selectable, seat.
+Else, render a selectable seat %>
 <% (1..showing.venue.rows).each do |row|%>
 	<div class="flex-container">
 		<% (1..showing.venue.seats_per_row).each do |seat|%>
@@ -31,6 +42,8 @@
 	</div>
 	<% end %>
 	<hr class="no-pointer">
+
+<%# Display a badge showing how many seats are available out of the total capacity %>
 <div class="seat-grid-label my-2">
 	<div>
 		<p class="m-0 badge badge-dark" ><%= cap - occupied.length%> / <%= cap%></p> 

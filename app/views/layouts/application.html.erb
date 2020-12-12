@@ -9,8 +9,10 @@
   </head>
 
   <body>
+  <%# Render a header partial for each page %>
     <%= render 'shared/header' %>
 
+    <%# Render flash notices on any page %>
     <% flash.each do |key,msg| %>
       <div class= "notice m-4">
         <%= msg %>
@@ -18,7 +20,8 @@
     <% end %>
     
     <%= yield %>
-
+    
+    <%# Render a footer partial for each page %>
     <%= render 'shared/footer' %>
 
   </body>
