@@ -1,13 +1,15 @@
 require 'test_helper'
 
 class ShowingTest < ActiveSupport::TestCase
+  
+  # Should not save a showing that does not have all its required parameters.
   test 'should not save empty showing' do
     showing = Showing.new
-  
     showing.save
     refute showing.valid?
   end
 
+  # May save a showing that has all fields populated in a vaild way.
   test 'should save valid showing' do
     showing = Showing.new
     

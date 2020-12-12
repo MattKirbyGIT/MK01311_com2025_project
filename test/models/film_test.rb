@@ -1,12 +1,14 @@
 require 'test_helper'
 
 class FilmTest < ActiveSupport::TestCase
+  # Test that expects to not save a valid film due to lack of required parameters.
   test 'should not save empty film' do
     film = Film.new
     film.save
     refute film.valid?
   end
 
+  # Test that expects to save a vaild film since all parameters are valid and present.
   test 'should save valid film' do
     film = Film.new
     film.title = "new film"
@@ -21,6 +23,7 @@ class FilmTest < ActiveSupport::TestCase
 
   end
 
+  # Test that sholdnot save the second film since film titles have to be unique
   test 'should not save duplicate note Title' do
     film1 = Film.new
     film1.title = "new film"
@@ -32,6 +35,7 @@ class FilmTest < ActiveSupport::TestCase
     film1.image_url = 'https://image.jpg'
     film1.save
 
+    # Second film wont save since its title is a duplicated of the previous film.
     film2 = Film.new
     film2.title = "new film"
     film2.description = "My film description"

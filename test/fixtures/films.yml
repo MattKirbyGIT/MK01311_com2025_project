@@ -1,5 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+# Two films defined for showings
 one:
   title: MyString 1
   description: MyString

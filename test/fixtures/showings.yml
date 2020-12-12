@@ -1,5 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+# two Showings defined for fixtures.
 one:
   film: one
   venue: one
