@@ -22,6 +22,7 @@ class HomeController < ApplicationController
     else # Send an email #Flash a sent notice 
       flash[:notice] = t('home.mailer.email_sent')
     end
+    ContactMailer.contact_email(email,name,telephone,message).deliver_now
     redirect_to root_path #Redirect to root 
   end
 end
