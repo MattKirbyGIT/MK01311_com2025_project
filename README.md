@@ -1,24 +1,31 @@
 # README
+Cinema ticket booking web app made using Ruby on Rails for Web Applications Development module (2nd Year) at the University of Surrey.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Functionality:
+ 
+* View info about a selection of films (pre-populated database tuples).
+* Enables users to book tickets for a given film.
+* For a given film, specify venue and showing time for a particular booking in a user friendly way
+* View the occupied seats for those films using seat_grid partial in a visual way.
+* Visually select specific seats for a selected venue.
+* View previously made bookings with an E_ticket code.
+* Simulated contact feature using a contact mailer.
+* Responsive design that accomodates for all popular viewport sizes.
+* Users can book multiple seats at a time, facilitated through the use of an AJAX Request.
 
-Things you may want to cover:
+## Rails Version:
 
-* Ruby version
+* Ruby Version: 2.7.0
+* Rails Version: Rails 5.2.4.4
 
-* System dependencies
+## System dependencies:
 
-* Configuration
+* Google Chrome
+* JQuery (1.12.4)
+* Bootstrap (v4.5.3)
 
-* Database creation
+## How to run the test suite:
 
-* Database initialization
+run `rake test TESTOPTS="-v"` in terminal within the project directory.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
