@@ -27,10 +27,15 @@ dateCheck = () => {
           node.style.fontSize = "2em"
           node.style.width = "100%"
           node.innerHTML = "Coming Soon!";
+      
           document.getElementById("book-" + cell_id).before(node); //append message element to expand content.
           document.getElementById("book-" + cell_id).style.display = "none"
-          element.className += " unreleased"
+          element.className += " unreleased";
+        document.getElementById('coming-soon-'+ cell_id).style.display = 'block';
+         
 
+      } else {
+       
       }
     
     });

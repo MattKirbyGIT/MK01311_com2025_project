@@ -98,11 +98,23 @@
     time: "16:00:00",
     price: 10.00
 },{
+
+    film_id: 4,
+    venue_id: 1,
+    time: "19:00:00",
+    price: 12.00
+},{
     film_id: 5,
     venue_id: 1,
     time: "19:00:00",
     price: 10.00
 },{
+
+    film_id: 5,
+    venue_id: 1,
+    time: "21:00:00",
+    price: 16.00
+},{
     film_id: 4,
     venue_id: 2,
     time: "10:00:00",
@@ -118,9 +130,21 @@
     time: "16:00:00",
     price: 10.00
 },{
+
+    film_id: 5,
+    venue_id: 2,
+    time: "10:00:00",
+    price: 10.00
+},{
     film_id: 6,
     venue_id: 2,
     time: "19:00:00",
+    price: 10.00
+},{
+
+    film_id: 6,
+    venue_id: 2,
+    time: "15:00:00",
     price: 10.00
 },{
     film_id: 5,
@@ -138,9 +162,21 @@
     time: "16:00:00",
     price: 10.00
 },{
+
+    film_id: 6,
+    venue_id: 3,
+    time: "12:00:00",
+    price: 8.00
+},{
     film_id: 4,
     venue_id: 3,
     time: "19:00:00",
+    price: 10.00
+
+    },{
+    film_id: 4,
+    venue_id: 3,
+    time: "23:00:00",
     price: 10.00
 }
 ])

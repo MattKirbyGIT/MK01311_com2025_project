@@ -12,7 +12,8 @@
         <%# Film thumbnail %>
         <div id="grid-thumb-<%= film.id %>"  onclick="toggleExpand(true,this.id,'film-expand')">
           <img class="grid-thumb no-pointer glow-shadow" src="<%= film.image_url %>" />
-          <h1 class='lead no-pointer m-2'><%= film.title %></h1>     
+          <h1 class='lead no-pointer m-2'><%= film.title %></h1>
+           <h1 id="coming-soon-<%= film.id %>" class='lead no-pointer m-2 text-info' style="display:none"> <%= t('films.index.soon') %></h1>  
         </div>
         <%# Content displayed if the thumbail is clicked. Shows a larger image of the film and film actions to book or view more info %>
         <div id="film-expand-<%= film.id %>" class="grid-expand">
@@ -32,7 +33,7 @@
     <% end %>
   </div>
 </div>
-
+<script>dateCheck()</script>
 
 
 

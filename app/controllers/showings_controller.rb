@@ -12,7 +12,7 @@ class ShowingsController < ApplicationController
         @film = Film.find(params[:film])
         @venue = Venue.find(params[:venue])
         # Get all shoings for particular venue and film
-        @venueShowings = Showing.where(film: params[:film],venue_id: @venue.id)
+        @venueShowings = Showing.where(film: params[:film],venue_id: @venue.id).order(:time)
       else #Redirect with notice if not valid
         redirect_to films_url
         flash[:alert] = t("showings.index.no_param")
