@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+Showing.destroy_all
+
 @films = Film.create([{
     title: 'The Kings Man', 
     description: 'When a group of villains devises a plot to kill millions around the world, a nobleman and his protégée must step up to stop them. Gemma Arterton, Ralph Fiennes and Harris Dickinson star in this action-packed prequel to the acclaimed Kingsman film series.', 
@@ -197,4 +199,14 @@ showing_id: 3,
     E_ticket: "TestEticket"
 }
 ])
+
+Showing.all.each do |showing|
+i = rand(1..20)
+    (1..i).each do
+    seat = rand(1..8);
+    row = rand(1..8);
+        Booking.create(name: "test", email: "Test@test.com", E_ticket: "TESTTEST", seat: seat, row: row, showing: showing)
+    end
+    
+end
 
