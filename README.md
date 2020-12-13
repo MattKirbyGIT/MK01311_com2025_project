@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby Version: 2.7.0
+Rails Version: Rails 5.2.4.4
 
-Things you may want to cover:
+System dependencies:
 
-* Ruby version
+JQuery (1.12.4)
+Bootstrap (v4.5.3)
 
-* System dependencies
+How to run the test suite:
 
-* Configuration
+run `rake test TESTOPTS="-v"` in the project directory.
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
