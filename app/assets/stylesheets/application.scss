@@ -19,7 +19,7 @@ nav,
 .footer {
   background-color: $bg-primary;
   max-width: 1366px;
-  margin: 0 auto;
+  margin: auto;
   z-index: 1;
 }
 
@@ -152,4 +152,13 @@ nav,
   text-align: center;
   color: $heading-main;
   font-weight: 300;
+}
+.disable-scrollbars::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* Chrome/Safari/Webkit */
+}
+
+.disable-scrollbars {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
 }
