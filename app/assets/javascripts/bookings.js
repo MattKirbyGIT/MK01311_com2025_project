@@ -19,17 +19,7 @@ handleOptions = () => {
     }
 }
 
-//Method to toggle the seat seletor panel in the form.
-//Param: show - boolean, true in order to show the field.
-toggleSeatSelector = (show) => {
-    handleSeatCounter()
-    if(show){
-        $("#seat-selector").fadeIn(200); //jQuery animations to toggle display property (transition: 200ms)
-    } else {
-        $("#seat-selector").fadeOut(200);
-    }
-    return false;
-}
+
 
 //Array to store all selected seats.
 var seats = []; 

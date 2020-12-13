@@ -38,7 +38,7 @@
         <%= t('bookings.form.seats') %>
         <div class="seat-amount-wrapper">
           <select id="seats-amount" class="seats-amount text-input p-1 m-2" ></select>
-          <button id="toggle-seats-<%=@booking.showing.id%>" type="button" class="btn btn-sm btn-outline-warning my-2" onclick="toggleExpand(true,this.id,'selector-expand')"><%= t('bookings.form.select')%></button> 
+          <button id="toggle-seats-<%=@booking.showing.id%>" type="button" class="btn btn-sm btn-outline-warning my-2" onclick="toggleExpand(true,this.id,'selector-expand');handleSeatCounter();"><%= t('bookings.form.select')%></button> 
         </div>
         <p id="seat-error" class="text-warning m-0"></p>
       </label>
