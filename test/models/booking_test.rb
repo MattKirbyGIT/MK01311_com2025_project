@@ -26,7 +26,7 @@ class BookingTest < ActiveSupport::TestCase
 
   #the first booking oibject will save since it has all params are valid.
   #The second booking object will not save since it has a duplicate parameter value which should be unique.
-  test 'should not save a booking with a duplicate e_ticket' do
+  test 'should save a booking with a duplicate e_ticket' do
     booking = Booking.new
     booking.name = "Name"
     booking.email = "Test@Test.com"
@@ -45,8 +45,8 @@ class BookingTest < ActiveSupport::TestCase
     booking2.showing = showings(:one)
     booking2.E_ticket ="AAAAAAA"
     booking2.save
-    #Booking2 will not save because it has the same e_ticket number as booking
-    refute booking2.valid?
+    #Booking2 will not save 
+    assert booking2.valid?
   
   end
 
